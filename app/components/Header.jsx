@@ -1,11 +1,4 @@
 import React from 'react'
-
-import {
-  SearchOutlined,
-  BookOutlined,
-  MessageOutlined,
-
-} from '@ant-design/icons'
 import Link from 'next/link'
 
 export default function Header() {
@@ -83,25 +76,6 @@ export default function Header() {
               </Link>
             </>
           </div>
-          <span className='navbar-toggler border-0 mt-2 p-0'>
-            <span className='d-none'>Search</span>
-            <SearchOutlined />
-          </span>
-
-          <Link className='navbar-toggler border-0 mt-2 p-0' href='/contact'>
-            <span className='d-none'>Contact</span>
-            <MessageOutlined />
-          </Link>
-
-          <Link className='navbar-toggler border-0 mt-2 p-0' href='/books'>
-            <span className='d-none'>Books</span>
-            <BookOutlined />
-          </Link>
-
-          <Link className='navbar-toggler border-0 mt-2 p-0' href='/menu'>
-            <span className='d-none'>Menu</span>
-            <span className='navbar-toggler-icon'></span>
-          </Link>
         </div>
       </div>
     </header>
