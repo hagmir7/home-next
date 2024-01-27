@@ -2,15 +2,10 @@ import React from 'react'
 
 import {
   SearchOutlined,
-  CloseOutlined,
   BookOutlined,
   MessageOutlined,
-  UserOutlined,
-  LogoutOutlined,
-  ExclamationCircleOutlined,
-} from '@ant-design/icons'
 
-import { Dropdown, Space } from 'antd'
+} from '@ant-design/icons'
 import Link from 'next/link'
 
 export default function Header() {
