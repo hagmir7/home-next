@@ -11,8 +11,8 @@ export default function Footer() {
               <Link href='/' className='logo h5'>Freewsad.com</Link>
             </div>
             <p className='menu d-flex justify-content-center mt-3 flex-wrap'>
-              <Link href='/' className='nav-link mx-2'><a>Home</a></Link>
-              <Link className='nav-link mx-2' href={'/pages/privacy'}> <a>Privacy Policy</a></Link>
+              <Link href='/' className='nav-link mx-2'>Home</Link>
+              <Link className='nav-link mx-2' href={'/pages/privacy'}> Privacy Policy</Link>
               <Link href='/pages/about' className='nav-link mx-2'>About</Link>
               <Link href='/pages/contact' className='nav-link mx-2'>Contact</Link>
             </p>
