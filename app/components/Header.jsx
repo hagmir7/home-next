@@ -9,7 +9,7 @@ export default function Header() {
       <div className='navbar navbar-expand-lg p-0 position-relative'>
         <div className='d-flex justify-content-between w-100 px-3'>
           <div className='logo-content'>
-            <Link className='nav-item logo h4 m-0 my-1 h1' href='/'>
+            <Link href='/' className='nav-item logo h4 m-0 my-1 h1'>
               <img
                 width='auto'
                 height='45px'

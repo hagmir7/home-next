@@ -1,3 +1,4 @@
+import Books from '@/app/components/Books';
 import React from 'react';
 
 export const metadata = {
@@ -12,9 +13,9 @@ export const metadata = {
 };
 
 export default async function BookPage(props) {
-    const response = await fetch("https://freesad.com/api/book/"+props.params.slug)
-    const book = await response.json()
   return (
-      <div>{book.name}</div>
+      <div className='container'>
+          <Books category={props.params.slug} />
+      </div>
   )
 }

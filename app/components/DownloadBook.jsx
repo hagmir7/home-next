@@ -1,0 +1,96 @@
+'use client'
+import React, { useRef, useState } from 'react'
+
+export default function DownloadBook(props) {
+  const [email, setEmail] = useState()
+  const [spinner, setSpinner] = useState(false)
+
+  const isEmail = localStorage.getItem('email')
+  const message = useRef()
+
+  const validateEmail = (email) => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )
+  }
+
+  const seveEmail = async () => {
+    setSpinner(true)
+    if (email !== '') {
+      await fetch('http://127.0.0.1:8000/en/api/save-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email }),
+      })
+        .then((respons) => {
+          if (validateEmail(email)) {
+            localStorage.setItem('email', true)
+            window.open(`https://freesad.com${props.file}`, '_blank')
+            setSpinner(false)
+          } else {
+            message.current.innerHTML = 'Your email is not valid!'
+            setSpinner(false)
+          }
+        })
+        .catch((error) => {
+          message.current.innerHTML = 'Your email is not valid!'
+          setSpinner(false)
+        })
+    } else {
+      message.current.innerHTML = 'Please first enter your email to download!'
+      setSpinner(false)
+    }
+
+    setSpinner(false)
+  }
+
+  return (
+    <>
+      <div className='text-danger p-0'></div>
+      <div className='row p-0'>
+        {isEmail ? (
+          <div className='col-md-12  text-center mt-3'>
+            <a
+              href={`https://freesad.com${props.file}`}
+              className='btn border-0 btn-success rounded-pill w-75 ms-1'
+              target='_blanck'
+            >
+              Download
+            </a>
+          </div>
+        ) : (
+          <>
+            <span className='text-danger' ref={message}></span>
+            <div className='col-md-12 col-lg-6 col-xl-6'>
+              <input
+                type='email'
+                placeholder='Enter you email'
+                className='form-control rounded-pill'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className='col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
+              <button
+                className='btn border-0 btn-success rounded-pill w-75 ms-1'
+                onClick={seveEmail}
+              >
+                {!spinner ? (
+                  'Download'
+                ) : (
+                  <div
+                    className='spinner-border'
+                    style={{ height: '25px', width: '25px' }}
+                    role='status'
+                  ></div>
+                )}
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    </>
+  )
+}

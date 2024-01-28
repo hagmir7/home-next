@@ -3,8 +3,8 @@ import Link from 'next/link'
 import BookCard from './BookCard'
 import LoadBooks from './LoadBooks'
 
-export default async function Books() {
-  const response = await fetch('https://freesad.com/api/books')
+export default async function Books(props) {
+  const response = await fetch(`https://freesad.com/api/books/${props.category ? props.category : ''}`)
   const books = await response.json()
   return (
     <div className='row pb-5'>
@@ -16,7 +16,7 @@ export default async function Books() {
           image={book.image}
         />
       ))}
-      <LoadBooks />
+      <LoadBooks category={props.category ? props.category : false} />
     </div>
   )
 }
