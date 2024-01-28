@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Privacy Policy - FreeWsad',
-  alternates: {
-    canonical: '/pages/privacy',
-  },
-}
+// export const metadata = {
+//   title: 'Privacy Policy - FreeWsad',
+//   alternates: {
+//     canonical: '/pages/privacy',
+//   },
+// }
 
 export default function PrivacyPage() {
   return (
