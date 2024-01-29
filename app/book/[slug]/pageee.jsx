@@ -3,40 +3,40 @@ import Link from 'next/link'
 import Books from '@/app/components/Books'
 import DownloadBook from '@/app/components/DownloadBook'
 
-// export async function generateMetadata({ params, searchParams }, parent) {
-//   // read route params
-//   const slug = params.slug
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const slug = params.slug
  
-//   // fetch data
-//   const response = await fetch(
-//     'https://freesad.com/api/book/' + slug
-//   )
-//   const book = await response.json()
+  // fetch data
+  const response = await fetch(
+    'https://freesad.com/api/book/' + slug
+  )
+  const book = await response.json()
  
  
-//   return {
-//     title: book.name,
-//     description: book.description.slice(0, 170),
-//     image: 'https://freesad.com' + book.image,
-//     keywords: ['books', book.tags],
-//     alternates: {
-//       canonical: 'http://localhost:3000/book/' + book.slug,
-//     },
-//     openGraph: {
-//       title: book.name,
-//       images: ['https://freesad.com' + book.image],
-//       description: book.description.slice(0, 170),
-//       url: '/book/' + book.slug,
-//       type: 'website',
-//       image: {
-//         url: 'https://freesad.com' + book.image,
-//         alt: book.name,
-//         width: 600,
-//         height: 800,
-//       },
-//     },
-//   }
-// }
+  return {
+    title: book.name,
+    description: book.description.slice(0, 170),
+    image: 'https://freesad.com' + book.image,
+    keywords: ['books', book.tags],
+    alternates: {
+      canonical: 'http://localhost:3000/book/' + book.slug,
+    },
+    openGraph: {
+      title: book.name,
+      images: ['https://freesad.com' + book.image],
+      description: book.description.slice(0, 170),
+      url: '/book/' + book.slug,
+      type: 'website',
+      image: {
+        url: 'https://freesad.com' + book.image,
+        alt: book.name,
+        width: 600,
+        height: 800,
+      },
+    },
+  }
+}
  
 
 export default async function BookPage(props) {
@@ -179,7 +179,6 @@ export default async function BookPage(props) {
             <div
               className='mt-2 book-description'
               dir='auto'
-              lang='auto'
               dangerouslySetInnerHTML={{ __html: book.description }}
             />
           </article>

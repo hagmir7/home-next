@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import Books from '@/app/components/Books'
-import DownloadBook from '@/app/components/DownloadBook'
+import dynamic from 'next/dynamic'
+
+const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
@@ -169,7 +171,7 @@ export default async function BookPage(props) {
 
               {/* Download book */}
               <h2 className='h4 p-0 m-0 mt-3'>Download book</h2>
-              {/* <DownloadBook file={book.file} /> */}
+              <DownloadBook file={book.file} />
             </div>
             <h2 className='h4 p-0 m-0 mt-2'>
               {book.title ? book.title : 'Description About ' + book.name}
