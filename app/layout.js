@@ -12,6 +12,7 @@ export const metadata = {
   title: "FreeWsad - The Best Website For Education",
   description: "You can enjoy the Topics and Books you love and download the original content, and share it all with your friends in FreeWsad.",
   image: '/thumbnail.png',
+  siteName: 'FreeWsad',
   keywords: ['books', 'download books', 'pdf books', 'free books', 'download free pdf books', 'free pdf books', 'programming books', 'online books'],
   alternates: {
     canonical: "/" 
@@ -45,7 +46,7 @@ export default function RootLayout({ children }) {
       </head>
       <AuthProvider>
         <body className={inter.className}>
-          <Header />
+          {/* <Header /> */}
           {children}
           <Footer />
         </body>
