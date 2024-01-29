@@ -7,8 +7,7 @@ export default function AuthTools() {
   const {authTokens, User } = useContext(AuthContext);
   return (
     <>
-      <Link className='btn-primary btn rounded-pill mx-2' href='/accounts/login'>Log in</Link>
-      <Link className='border btn rounded-pill mx-2' href='/accounts/register'>Register</Link>
+      
 
       {authTokens ? (
         <>
@@ -25,7 +24,10 @@ export default function AuthTools() {
           </Link>
         </>
       ) : (
-        'loading'
+        <>
+        <Link className='btn-primary btn rounded-pill mx-2' href='/accounts/login'>Log in</Link>
+         <Link className='border btn rounded-pill mx-2' href='/accounts/register'>Register</Link>
+        </>
       )}
     </>
   )
