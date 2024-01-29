@@ -1,23 +1,15 @@
 import React from 'react'
-import { useRouter } from 'next/router'
-import Books from '@/app/components/Books'
-import DownloadBook from '@/app/components/DownloadBook'
 
-export default function Page() {
-  const router = useRouter()
-  const { slug } = router.query
-
-  const fetchBook = async () => {
-    const response = await fetch(`https://freesad.com/api/book/${slug}`)
-    const book = await response.json()
-    return book
+export default async function BookPage(props) {
+  const response = await fetch(`https://freesad.com/api/book/${props.params.slug}`)
+  const book = await response.json()
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+    timeZone: 'UTC',
   }
 
-  const language = 'en'
-  const book = fetchBook()
-
-  if (!book) {
-    return <div>Loading...</div>
-  }
+  const language = "en" // navigator.language.slice(0, 2)
   return <div>{book.name}</div>
 }
