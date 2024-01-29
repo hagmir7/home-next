@@ -7,7 +7,7 @@ package = "@netlify/plugin-nextjs"
 
 [[redirects]]                 # Optional: For URL redirects
   from = "/*"
-  to = "/index.html"
+  to = "/"
   status = 200
 
 [[headers]]                   # Optional: Custom HTTP headers
