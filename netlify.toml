@@ -5,10 +5,6 @@ package = "@netlify/plugin-nextjs"
   command = "npm run build"   # Specifies the build command
   publish = ".next"             # Specifies the directory to publish (adjust if your output directory is different)
 
-[[redirects]]                 # Optional: For URL redirects
-  from = "/*"
-  to = "/"
-  status = 200
 
 [[headers]]                   # Optional: Custom HTTP headers
   for = "/*"
