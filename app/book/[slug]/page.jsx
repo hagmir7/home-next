@@ -42,14 +42,6 @@ export default async function BookPage(props) {
     'https://freesad.com/api/book/' + props.params.slug
   )
   const book = await response.json()
-  const options = {
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit',
-    timeZone: 'UTC',
-  }
-
-  const language = 'en' // navigator.language.slice(0, 2)
 
   return (
     <div className='container-lg mt-3' style={{ height: 'auto!important' }}>
@@ -108,9 +100,8 @@ export default async function BookPage(props) {
                       dir='auto'
                       className='badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1'
                     >
-                      {new Intl.NumberFormat(language, {
-                        notation: 'compact',
-                      }).format(Number(book.views))}
+                      {/* {new Intl.NumberFormat(language, {notation: 'compact',}).format(Number(book.views))} */}
+                      {/* {book.views} */} 11
                     </span>
                   </li>
 
@@ -127,11 +118,7 @@ export default async function BookPage(props) {
                     <li className='list-group-item d-flex justify-content-between align-items-center'>
                       Category
                       <Link
-                        href={`/books/${
-                          book.category.slug
-                            ? book.category.slug
-                            : book.category.id
-                        }`.toLocaleLowerCase()}
+                        href={`/books/${book.category.slug}`}
                         className='badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1'
                         dir='auto'
                       >
@@ -160,9 +147,8 @@ export default async function BookPage(props) {
                       dir='auto'
                       className='badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1'
                     >
-                      {new Intl.DateTimeFormat(language, options).format(
-                        new Date(book.created_at)
-                      )}
+                      {/* {new Intl.DateTimeFormat(language, options).format(new Date(book.created_at))} */}
+                      {book.created_at}
                     </span>
                   </li>
                 </ul>
