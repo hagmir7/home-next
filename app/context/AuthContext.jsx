@@ -6,43 +6,46 @@ import { useRouter } from 'next/navigation';
 const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }) => {
-  const [sniper, setSniper] = useState(false);
-  const [Message, setMessage] = useState('');
-  const router = useRouter();
+  const [sniper, setSniper] = useState(false)
+  const [Message, setMessage] = useState('')
+  const router = useRouter()
 
-  const storedToken = localStorage.getItem('authTokens')
-  const DecodeToken = storedToken ? jwtDecode(storedToken) : null
+
+  let storedToken
+  let DecodeToken
+  if (typeof window !== 'undefined') {
+    storedToken = window.localStorage.getItem('authTokens')
+    DecodeToken = storedToken ? jwtDecode(storedToken) : null
+  }
 
   let [authTokens, setAuthTokens] = useState(() => DecodeToken)
 
   const [User, setUser] = useState(null)
 
+  useEffect(() => {
+    getUser()
+  }, [])
 
-    useEffect(() => {
-      getUser();
-    }, [])
+  useEffect(() => {
+    console.log(User)
+  }, [User])
 
-    useEffect(() => {
-      console.log(User);
-    }, [User])
+  const getUser = async () => {
+    if (DecodeToken !== null) {
+      const response = await fetch(
+        `https://freesad.com/en/api/user/${DecodeToken.username}`
+      )
 
-    const getUser = async () => {
-      if (DecodeToken !== null) {
-        const response = await fetch(
-          `https://freesad.com/en/api/user/${DecodeToken.username}`
-        )
-
-        if (response.status === 200) {
-          const responseData = await response.json() // Wait for JSON parsing
-          setUser({ ...responseData[0], ...responseData[1] })
-        } else {
-          setUser(null)
-        }
+      if (response.status === 200) {
+        const responseData = await response.json() // Wait for JSON parsing
+        setUser({ ...responseData[0], ...responseData[1] })
       } else {
         setUser(null)
       }
+    } else {
+      setUser(null)
     }
-
+  }
 
   const LoinUser = (event) => {
     event.preventDefault()
@@ -72,9 +75,9 @@ export const AuthProvider = ({ children }) => {
       })
       const responseData = await response.json()
       if (response.status == 200) {
-        localStorage.setItem('authTokens', JSON.stringify(responseData));
-        setSniper(false);
-        router.push('/');
+        window.localStorage.setItem('authTokens', JSON.stringify(responseData))
+        setSniper(false)
+        router.push('/')
       } else {
         setMessage('The username or password is incorrect.')
         setTimeout(() => {
@@ -125,12 +128,9 @@ export const AuthProvider = ({ children }) => {
     authTokens,
   }
 
-
-
-      // useEffect(() => {
-      //   getUser()
-      // }, [])
-
+  // useEffect(() => {
+  //   getUser()
+  // }, [])
 
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>

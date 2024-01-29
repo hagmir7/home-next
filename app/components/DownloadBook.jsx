@@ -5,7 +5,11 @@ export default function DownloadBook(props) {
   const [email, setEmail] = useState()
   const [spinner, setSpinner] = useState(false)
 
-  const isEmail = localStorage.getItem('email')
+  let isEmail;
+   if (typeof window !== 'undefined') {
+      const isEmail = window.localStorage.getItem('email')
+   }
+  
   const message = useRef()
 
   const validateEmail = (email) => {
@@ -26,7 +30,7 @@ export default function DownloadBook(props) {
       })
         .then((respons) => {
           if (validateEmail(email)) {
-            localStorage.setItem('email', true)
+            window.localStorage.setItem('email', true);
             window.open(`https://freesad.com${props.file}`, '_blank')
             setSpinner(false)
           } else {
