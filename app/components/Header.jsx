@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+const AuthTools = dynamic(() => import('@/app/components/AuthTools'))
 
 export default function Header() {
 
@@ -61,20 +63,7 @@ export default function Header() {
             </nav>
           </div>
           <div className='d-none d-lg-block my-1' style={{ zIndex: 100 }}>
-            <>
-              <Link
-                className='btn-primary btn rounded-pill mx-2'
-                href='/accounts/login'
-              >
-                Log in
-              </Link>
-              <Link
-                className='border btn rounded-pill mx-2'
-                href='/accounts/register'
-              >
-                Register
-              </Link>
-            </>
+            <AuthTools />
           </div>
 
             <>

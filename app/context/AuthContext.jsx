@@ -15,22 +15,34 @@ export const AuthProvider = ({ children }) => {
 
   let [authTokens, setAuthTokens] = useState(() => DecodeToken)
 
-  const [User, setUser] = useState(authTokens)
+  const [User, setUser] = useState(null)
 
-  const getUser = async () => {
-    if (DecodeToken !== null) {
-      const response = await fetch(`https://freesad.com/en/api/user/${DecodeToken.username}`)
-      const responsData = response.json()
 
-      if (response.status == 200) {
-        setUser({ ...responsData[0], ...responsData[1] })
+    useEffect(() => {
+      getUser();
+    }, [])
+
+    useEffect(() => {
+      console.log(User);
+    }, [User])
+
+    const getUser = async () => {
+      if (DecodeToken !== null) {
+        const response = await fetch(
+          `https://freesad.com/en/api/user/${DecodeToken.username}`
+        )
+
+        if (response.status === 200) {
+          const responseData = await response.json() // Wait for JSON parsing
+          setUser({ ...responseData[0], ...responseData[1] })
+        } else {
+          setUser(null)
+        }
       } else {
-        console.log('User is not authenticated!');
+        setUser(null)
       }
-    }else{
-        setUser(null);
     }
-  }
+
 
   const LoinUser = (event) => {
     event.preventDefault()
@@ -113,9 +125,12 @@ export const AuthProvider = ({ children }) => {
     authTokens,
   }
 
-  useEffect(() => {
-    getUser()
-  }, [history])
+
+
+      // useEffect(() => {
+      //   getUser()
+      // }, [])
+
 
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
