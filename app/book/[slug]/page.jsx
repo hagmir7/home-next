@@ -40,9 +40,7 @@ import DownloadBook from '@/app/components/DownloadBook'
  
 
 export default async function BookPage(props) {
-  const response = await fetch(
-    process.env.REACT_APP_API_URL + '/api/book/' + props.params.slug
-  )
+  const response = await fetch('https://freesad.com/api/book/' + props.params.slug)
   const book = await response.json()
   const options = {
     year: 'numeric',
@@ -70,7 +68,7 @@ export default async function BookPage(props) {
               <div className='col-12 col-md-12 col-lg-3 col-xl-3 p-0 '>
                 <div className='card book-img overflow-hidden m-auto'>
                   <img
-                    src={`${process.env.REACT_APP_API_URL}${book.image}`}
+                    src={`https://freesad.com${book.image}`}
                     alt={book.name}
                     width='100%'
                     height='auto'
