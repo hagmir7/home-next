@@ -13,8 +13,8 @@ export default function Footer() {
             <p className='menu d-flex justify-content-center mt-3 flex-wrap'>
               <Link href='/' className='nav-link mx-2'>Home</Link>
               <Link className='nav-link mx-2' href={'/pages/privacy'}> Privacy Policy</Link>
-              <Link href='/pages/about' className='nav-link mx-2'>About</Link>
-              <Link href='/pages/contact' className='nav-link mx-2'>Contact</Link>
+              <Link href='/pages/about' className='nav-link mx-2'>About Us</Link>
+              <Link href='/pages/contact' className='nav-link mx-2'>Contact Us</Link>
             </p>
           </div>
         </div>

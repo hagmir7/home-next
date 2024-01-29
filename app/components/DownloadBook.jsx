@@ -17,7 +17,7 @@ export default function DownloadBook(props) {
   const seveEmail = async () => {
     setSpinner(true)
     if (email !== '') {
-      await fetch('http://127.0.0.1:8000/en/api/save-email', {
+      await fetch('https://freesad.com/en/api/save-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
