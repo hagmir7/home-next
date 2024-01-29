@@ -1,3 +1,6 @@
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
 [build]
   command = "npm run build"   # Specifies the build command
   publish = "out"             # Specifies the directory to publish (adjust if your output directory is different)
@@ -12,4 +15,5 @@
     [headers.values]
       X-Frame-Options = "DENY"
       X-XSS-Protection = "1; mode=block"
+
 
