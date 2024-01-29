@@ -76,6 +76,21 @@ export default function Header() {
               </Link>
             </>
           </div>
+
+            <>
+              <Link
+                className='navbar-toggler border-0 mt-2 p-0'
+                href='/pages/menu'
+              >
+                <img
+                  width='32'
+                  height='32'
+                  src='/assets/imgs/menu.svg'
+                  alt='Menu'
+                />
+              </Link>
+            </>
+
         </div>
       </div>
     </header>

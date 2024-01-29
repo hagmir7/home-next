@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import Books from '@/app/components/Books'
 import dynamic from 'next/dynamic'
-
 const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
@@ -179,7 +178,6 @@ export default async function BookPage(props) {
             <div
               className='mt-2 book-description'
               dir='auto'
-              lang='auto'
               dangerouslySetInnerHTML={{ __html: book.description }}
             />
           </article>
