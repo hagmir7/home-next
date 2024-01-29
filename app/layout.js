@@ -3,9 +3,21 @@ import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { AuthProvider } from './context/AuthContext'
+import { Suspense } from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })
+
+
+const Loader = () =>{
+  return(
+    <div
+      className='spinner-border'
+      style={{ height: '100px', width: '100px' }}
+      role='status'
+    ></div>
+  )
+}
 
 
 export const metadata = {
@@ -47,7 +59,9 @@ export default function RootLayout({ children }) {
       <AuthProvider>
         <body className={inter.className}>
           <Header />
-          {children}
+          <Suspense fallback={<Loader />}>
+            {children}
+          </Suspense>
           <Footer />
         </body>
       </AuthProvider>
