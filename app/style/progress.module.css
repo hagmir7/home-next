@@ -11,6 +11,6 @@
 
 .loadingBar{
     height: 100%;
-    background-color: red;
+    background: linear-gradient(260deg,#17c1dd,#189ddc);
     transition: width 0.5s ease-in-out;
 }
