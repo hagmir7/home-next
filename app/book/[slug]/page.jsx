@@ -1,47 +1,53 @@
 import React from 'react'
 import Link from 'next/link'
-// import Books from '@/app/components/Books'
+import Books from '@/app/components/Books'
 import DownloadBook from '@/app/components/DownloadBook'
 
-// export async function generateMetadata({ params, searchParams }, parent) {
-//   // read route params
-//   const slug = params.slug
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const slug = params.slug
 
-//   // fetch data
-//   const response = await fetch(
-//     'https://freesad.com/api/book/' + slug
-//   )
-//   const book = await response.json()
+  // fetch data
+  const response = await fetch('https://freesad.com/api/book/' + slug)
+  const book = await response.json()
 
-//   return {
-//     title: book.name,
-//     description: book.description.slice(0, 170),
-//     image: 'https://freesad.com' + book.image,
-//     keywords: ['books', book.tags],
-//     alternates: {
-//       canonical: 'http://localhost:3000/book/' + book.slug,
-//     },
-//     openGraph: {
-//       title: book.name,
-//       images: ['https://freesad.com' + book.image],
-//       description: book.description.slice(0, 170),
-//       url: '/book/' + book.slug,
-//       type: 'website',
-//       image: {
-//         url: 'https://freesad.com' + book.image,
-//         alt: book.name,
-//         width: 600,
-//         height: 800,
-//       },
-//     },
-//   }
-// }
+  return {
+    title: book.name,
+    description: book.description.slice(0, 170),
+    image: 'https://freesad.com' + book.image,
+    keywords: ['books', book.tags],
+    alternates: {
+      canonical: 'http://localhost:3000/book/' + book.slug,
+    },
+    openGraph: {
+      title: book.name,
+      images: ['https://freesad.com' + book.image],
+      description: book.description.slice(0, 170),
+      url: '/book/' + book.slug,
+      type: 'website',
+      image: {
+        url: 'https://freesad.com' + book.image,
+        alt: book.name,
+        width: 600,
+        height: 800,
+      },
+    },
+  }
+}
 
 export default async function BookPage(props) {
   const response = await fetch(
     'https://freesad.com/api/book/' + props.params.slug
   )
   const book = await response.json()
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+    timeZone: 'UTC',
+  }
+
+  const language = 'en' // navigator.language.slice(0, 2)
 
   return (
     <div className='container-lg mt-3' style={{ height: 'auto!important' }}>
@@ -100,8 +106,9 @@ export default async function BookPage(props) {
                       dir='auto'
                       className='badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1'
                     >
-                      {/* {new Intl.NumberFormat(language, {notation: 'compact',}).format(Number(book.views))} */}
-                      {/* {book.views} */} 11
+                      {new Intl.NumberFormat(language, {
+                        notation: 'compact',
+                      }).format(Number(book.views))}
                     </span>
                   </li>
 
@@ -118,7 +125,11 @@ export default async function BookPage(props) {
                     <li className='list-group-item d-flex justify-content-between align-items-center'>
                       Category
                       <Link
-                        href={`/books/${book.category.slug}`}
+                        href={`/books/${
+                          book.category.slug
+                            ? book.category.slug
+                            : book.category.id
+                        }`.toLocaleLowerCase()}
                         className='badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1'
                         dir='auto'
                       >
@@ -147,8 +158,9 @@ export default async function BookPage(props) {
                       dir='auto'
                       className='badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1'
                     >
-                      {/* {new Intl.DateTimeFormat(language, options).format(new Date(book.created_at))} */}
-                      {book.created_at}
+                      {new Intl.DateTimeFormat(language, options).format(
+                        new Date(book.created_at)
+                      )}
                     </span>
                   </li>
                 </ul>
@@ -201,7 +213,7 @@ export default async function BookPage(props) {
           </div>
         </div>
       </div>
-      {/* <Books /> */}
+      <Books />
     </div>
   )
 }
