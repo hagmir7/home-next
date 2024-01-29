@@ -157,7 +157,7 @@ export default async function BookPage(props) {
 
               {/* Download book */}
               <h2 className='h4 p-0 m-0 mt-3'>Download book</h2>
-              <DownloadBook file={book.file} />
+              {/* <DownloadBook file={book.file} /> */}
             </div>
             <h2 className='h4 p-0 m-0 mt-2'>
               {book.title ? book.title : 'Description About ' + book.name}
