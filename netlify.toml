@@ -3,7 +3,7 @@ package = "@netlify/plugin-nextjs"
 
 [build]
   command = "npm run build"   # Specifies the build command
-  publish = "out"             # Specifies the directory to publish (adjust if your output directory is different)
+  publish = ".next"             # Specifies the directory to publish (adjust if your output directory is different)
 
 [[redirects]]                 # Optional: For URL redirects
   from = "/*"
