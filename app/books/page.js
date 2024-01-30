@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Loder from '../components/Loader';
 
 export default async BooksPage => {
     const response = await fetch("https://freesad.com/api/books")
@@ -12,6 +13,7 @@ export default async BooksPage => {
                     return <div><Link href={`/books/${book.slug}`}>{book.name}</Link></div>
                 })
             }
+            <Loder />
         </div>
     );
 };
