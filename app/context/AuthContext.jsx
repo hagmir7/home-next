@@ -26,9 +26,7 @@ export const AuthProvider = ({ children }) => {
     getUser()
   }, [])
 
-  useEffect(() => {
-    console.log(User)
-  }, [User])
+
 
   const getUser = async () => {
     if (DecodeToken !== null) {
@@ -75,7 +73,10 @@ export const AuthProvider = ({ children }) => {
       })
       const responseData = await response.json()
       if (response.status == 200) {
-        window.localStorage.setItem('authTokens', JSON.stringify(responseData))
+        if(typeof window !== 'undefined'){
+          window.localStorage.setItem('authTokens', JSON.stringify(responseData));
+        }
+       
         setSniper(false)
         router.push('/')
       } else {
@@ -114,7 +115,9 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setAuthTokens(null)
-    localStorage.removeItem('authTokens')
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('authTokens')
+    }
   }
 
   let contextData = {

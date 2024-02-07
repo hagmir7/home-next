@@ -30,8 +30,10 @@ export default function DownloadBook(props) {
       })
         .then((respons) => {
           if (validateEmail(email)) {
-            window.localStorage.setItem('email', true);
-            window.open(`https://freesad.com${props.file}`, '_blank')
+            if (typeof window !== 'undefined') {
+              window.localStorage.setItem('email', true)
+              window.open(`https://freesad.com${props.file}`, '_blank')
+            }
             setSpinner(false)
           } else {
             message.current.innerHTML = 'Your email is not valid!'

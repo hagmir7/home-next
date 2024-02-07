@@ -14,8 +14,13 @@ export default function ProgresBar() {
         }
     }, [])
   return (
-    <div className={style.loadingContainer}>
-      <div className={style.loadingBar} style={{ width: `${progress}%` }}></div>
-    </div>
+    <>
+      <div className={style.loadingContainer}>
+        <div className={style.loadingBar} style={{ width: `${progress}%` }}></div>
+      </div>
+      <div>
+        Loding..
+      </div>
+    </>
   )
 }

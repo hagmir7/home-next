@@ -3,6 +3,8 @@ import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { AuthProvider } from './context/AuthContext'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,11 +18,11 @@ export const metadata = {
   siteName: 'FreeWsad',
   keywords: ['books', 'download books', 'pdf books', 'free books', 'download free pdf books', 'free pdf books', 'programming books', 'online books'],
   alternates: {
-    canonical: "/" 
+    canonical: "/"
   },
   openGraph: {
     title: "FreeWsad - The Best Website For Education",
-    images: ['/thumbnail.png'],
+    images: '/thumbnail.png',
     description: "You can enjoy the Topics and Books you love and download the original content, and share it all with your friends in FreeWsad.",
     url: '/',
     type: 'website',
@@ -46,9 +48,12 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <AuthProvider>
-        <body className={inter.className}>
+        <body>
           <Header />
+
           {children}
+          <Suspense fallback={<Loading />}>
+          </Suspense>
           <Footer />
         </body>
       </AuthProvider>
