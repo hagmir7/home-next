@@ -1,6 +1,4 @@
 import CopyRight from '@/app/components/CopyRight'
-import Link from 'next/link'
-
 
 export default async function Post(props) {
   const response = await fetch(`https://freesad.com/en/api/post/${props.params.slug}`)
@@ -31,7 +29,7 @@ export default async function Post(props) {
           <CopyRight />
         </div>
       </div>
-      {/* <PostCards /> */}
+      {/* <Post /> */}
     </div>
   )
 }
