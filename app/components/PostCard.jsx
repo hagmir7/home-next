@@ -1,9 +1,8 @@
-import React from 'react';
 import Link from 'next/link';
 
 export default function PostCard(props) {
   return (
-    <div className='col-12 col-md-6 col-lg-4 mb-3' key={props.slug}>
+    <div className='col-12 col-md-6 col-lg-4 mb-3' ref={props.last} key={props.slug}>
       <Link href={`/p/${props.slug}`}>
         <div className='img-content'>
           <img
