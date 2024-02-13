@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
       if (response.status === 200) {
         const responseData = await response.json() // Wait for JSON parsing
-        setUser({ ...responseData[0], ...responseData[1] })
+        setUser(responseData)
       } else {
         setUser(null)
       }

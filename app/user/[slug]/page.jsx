@@ -8,21 +8,22 @@ export async function generateMetadata({ params, searchParams }, parent) {
   // fetch data
   const response = await fetch(`https://freesad.com/en/api/user/${params.slug}`)
   const data = await response.json()
-  const user = data.user
+  console.log(data)
+  const user = data.user;
 
   return {
     title: `${user.first_name} ${user.last_name} (@${user.username})`,
-    image: 'https://freesad.com' + user.profile.avatar,
+    image: 'https://freesad.com' + data.profile.avatar,
     alternates: {
       canonical: '/user/' + user.username,
     },
     openGraph: {
       title: `${user.first_name} ${user.last_name} (@${user.username})`,
-      images: ['https://freesad.com' + user.profile.avatar],
+      images: ['https://freesad.com' + data.profile.avatar],
       url: '/user/' + user.username,
       type: 'website',
       image: {
-        url: 'https://freesad.com' + user.profile.avatar,
+        url: 'https://freesad.com' + data.profile.avatar,
         alt: `${user.first_name} ${user.last_name} (@${user.username})`,
         width: 600,
         height: 800,
@@ -31,7 +32,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   }
 }
 
-export default async function  Profile(props) {
+export default async function Profile(props) {
 
   const respons = await fetch(`https://freesad.com/en/api/user/${props.params.slug}`);
   const data = await respons.json()

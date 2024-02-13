@@ -11,12 +11,12 @@ export default function AuthTools() {
 
       {authTokens ? (
         <>
-          <Link href={`/user/${User ? User.username : ''}`} className='nav-item mx-4'>
+          <Link href={`/user/${User ? User.user.username : ''}`} className='nav-item mx-4'>
             <img
               title='Profile'
               loading='eager'
               className='nav-icon'
-              src={`https://freesad.com/${User ? User.avatar : ''}`}
+              src={`https://freesad.com/${User ? User.profile.avatar : ''}`}
               alt='Profile'
               width='35px'
               height='35px'

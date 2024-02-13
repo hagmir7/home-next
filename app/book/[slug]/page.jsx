@@ -19,7 +19,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     image: 'https://freesad.com' + book.image,
     keywords: ['books', book.tags],
     alternates: {
-      canonical: 'http://localhost:3000/book/' + book.slug,
+      canonical: 'https://www.freewsad.com/book/' + book.slug,
     },
     openGraph: {
       title: book.name,
