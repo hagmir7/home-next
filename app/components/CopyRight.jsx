@@ -21,7 +21,9 @@ export default function CopyRight() {
             <a href='mailto:support@freewsad.com'> support@freewsad.com.</a>
           </p>{' '}
         </div>
-        <Link href='/pages/about'>Read More</Link>
+        <p>
+          <Link href='/pages/about'>More About us</Link>
+        </p>
       </div>
     </div>
   )
