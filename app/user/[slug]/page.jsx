@@ -6,7 +6,7 @@ import React from 'react';
 export async function generateMetadata({ params, searchParams }, parent) {
 
   // fetch data
-  const response = await fetch(`http://127.0.0.1:8000/en/api/user/${params.slug}`)
+  const response = await fetch(`https://freesad.com/en/api/user/${params.slug}`)
   const data = await response.json()
   const user = data.user
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default async function  Profile(props) {
 
-  const respons = await fetch(`http://127.0.0.1:8000/en/api/user/${props.params.slug}`);
+  const respons = await fetch(`https://freesad.com/en/api/user/${props.params.slug}`);
   const data = await respons.json()
   const user = data.user
   const profile = data.profile;
