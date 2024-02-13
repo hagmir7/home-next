@@ -5,7 +5,7 @@ export default async BooksPage => {
     return (
         <main className='container'>
             <div className="row">
-                <Books />
+                <Books title={(<h1 className='d-none'>Download free PDF books</h1>)} />
             </div>
         </main>
     );

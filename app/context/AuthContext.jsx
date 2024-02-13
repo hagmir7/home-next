@@ -128,7 +128,7 @@ export const AuthProvider = ({ children }) => {
     User: User,
     logout: logout,
     authTokens,
-    authTokens,
+
   }
 
   // useEffect(() => {

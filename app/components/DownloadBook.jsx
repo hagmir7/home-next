@@ -5,10 +5,7 @@ export default function DownloadBook(props) {
   const [email, setEmail] = useState()
   const [spinner, setSpinner] = useState(false)
 
-  let isEmail;
-   if (typeof window !== 'undefined') {
-      const isEmail = window.localStorage.getItem('email')
-   }
+  const isEmail = localStorage.getItem('email')
   
   const message = useRef()
 

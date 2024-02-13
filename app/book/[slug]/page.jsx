@@ -10,7 +10,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const slug = params.slug
 
   // fetch data
-  const response = await fetch('https://freesad.com/api/book/' + slug)
+  const response = await fetch('https://freesad.com/en/api/book/' + slug)
   const book = await response.json()
 
   return {
@@ -190,7 +190,9 @@ export default async function BookPage(props) {
           <CopyRight />
         </div>
       </div>
-      <Books />
+      <Books
+        title={<h2 className='h4'>More free PDF books</h2>}
+      />
     </div>
   )
 }

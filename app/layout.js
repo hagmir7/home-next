@@ -4,7 +4,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import { AuthProvider } from './context/AuthContext'
 import { Suspense } from 'react'
-import Loading from './loading'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -48,12 +47,9 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <AuthProvider>
-        <body>
+        <body className={inter.className}>
           <Header />
-
           {children}
-          <Suspense fallback={<Loading />}>
-          </Suspense>
           <Footer />
         </body>
       </AuthProvider>

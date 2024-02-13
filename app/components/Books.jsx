@@ -8,7 +8,7 @@ export default async function Books(props) {
   const books = await response.json()
   return (
     <div className='row pb-5 p-0 m-0'>
-      <h1 className='d-none'>Download free PDF books</h1>
+      {props.title}
       {books.data.map((book) => (
         <BookCard
           key={book.slug}

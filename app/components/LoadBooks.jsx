@@ -19,7 +19,7 @@ export default function LoadBooks(props) {
 
 const getBooks = async (pageNumber = 2) => {
   const response = await fetch(
-    `https://freesad.com/en/api/books/${props.category ? props.category : ''}?page=${pageNumber}`
+    `https://freesad.com/ar/api/books/${props.category ? props.category : ''}?page=${pageNumber}`
   )
   const result = await response.json() // Extract JSON data from response
   setSniper(false);
