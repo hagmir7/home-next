@@ -15,7 +15,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     image: 'https://freesad.com' + post.image,
     keywords: ['posts', post.tags],
     alternates: {
-      canonical: 'http://www.freewsad.com/p/' + post.slug,
+      canonical: '/p/' + post.slug,
     },
     openGraph: {
       title: post.title,
