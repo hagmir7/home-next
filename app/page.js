@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className='container'>
       <div className="row">
-        <Books />
+        <Books title={(<h1 className='d-none'>FreeWsad - Download FREE PDF books</h1>)} />
       </div>
     </main>
   )
