@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Books from '@/app/components/Books'
 import dynamic from 'next/dynamic'
 import CopyRight from '@/app/components/CopyRight';
+import GoogleAd from '@/app/components/GoogleAd';
 const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
@@ -53,6 +54,7 @@ export default async function BookPage(props) {
 
   return (
     <div className='container-lg mt-3' style={{ height: 'auto!important' }}>
+      <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
       <div className='row' style={{ height: 'auto!important' }}>
         <div
           className='col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0 p-1'
@@ -172,7 +174,9 @@ export default async function BookPage(props) {
               <h2 className='h4 p-0 m-0 mt-3'>Download book</h2>
               <DownloadBook file={book.file} />
             </div>
-            <h2 dir='auto' className='h4 p-0 m-0 mt-2'>{book.name}</h2>
+            <h2 dir='auto' className='h4 p-0 m-0 mt-2'>
+              {book.name}
+            </h2>
             <div
               className='mt-2 book-description'
               dir='auto'
@@ -184,6 +188,7 @@ export default async function BookPage(props) {
           className='col-12 col-md-5 col-lg-4 col-xl-4 position-relative mb-3'
           style={{ height: 'auto!important' }}
         >
+          <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
           <CopyRight />
         </div>
       </div>
