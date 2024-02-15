@@ -69,12 +69,8 @@ export default function DownloadBook(props) {
         ) : (
           <>
             <span className='text-danger' ref={message}></span>
-
+            <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
             <div className='d-flex w-100'>
-              <GoogleAd
-                slot='4567237334'
-                googleAdId='ca-pub-6043226569102012'
-              />
               <input
                 type='email'
                 placeholder='Enter you email'
@@ -97,11 +93,8 @@ export default function DownloadBook(props) {
                   )}
                 </button>
               </div>
-              <GoogleAd
-                slot='4567237334'
-                googleAdId='ca-pub-6043226569102012'
-              />
             </div>
+            <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
           </>
         )}
       </div>
