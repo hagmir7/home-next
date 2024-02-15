@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6043226569102012" crossorigin="anonymous" defer></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6043226569102012" crossorigin="anonymous" ></script>
       </head>
       <AuthProvider>
         <body className={inter.className}>
