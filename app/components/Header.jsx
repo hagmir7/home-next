@@ -61,19 +61,6 @@ export default function Header() {
                   height='30px'
                 />
               </Link>
-
-              <span className='nav-item mx-4 pointer'>
-                <img
-                  title='Blog'
-                  loading='eager'
-                  className='nav-icon'
-                  src='https://2023.freewsad.com/assets/new/search.png'
-                  alt='Search'
-                  width='30px'
-                  height='30px'
-                />
-              </span>
-
             </nav>
           </div>
           <div className='d-none d-lg-block my-1' style={{ zIndex: 100 }}>
