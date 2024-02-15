@@ -60,8 +60,7 @@ export default async function BookPage(props) {
         >
           <article className='blog-post' style={{ height: 'auto!important' }}>
             <h1 dir='auto' className='blog-post-title h5 mt-2'>
-              {' '}
-              {book.name}{' '}
+              {book.title ? book.title : book.name}
             </h1>
 
             <div className='row mx-1'>
@@ -173,9 +172,7 @@ export default async function BookPage(props) {
               <h2 className='h4 p-0 m-0 mt-3'>Download book</h2>
               <DownloadBook file={book.file} />
             </div>
-            <h2 className='h4 p-0 m-0 mt-2'>
-              {book.title ? book.title : 'Description About ' + book.name}
-            </h2>
+            <h2 dir='auto' className='h4 p-0 m-0 mt-2'>{book.name}</h2>
             <div
               className='mt-2 book-description'
               dir='auto'
@@ -190,9 +187,7 @@ export default async function BookPage(props) {
           <CopyRight />
         </div>
       </div>
-      <Books
-        title={<h2 className='h4'>More free PDF books</h2>}
-      />
+      <Books title={<h2 className='h4'>More free PDF books</h2>} />
     </div>
   )
 }
