@@ -42,7 +42,7 @@ GoogleAd.propTypes = {
 }
 
 GoogleAd.defaultProps = {
-  classNames: 'p-4 border border-3 w-100',
+  classNames: 'w-100',
   timeout: 200,
 }
 
