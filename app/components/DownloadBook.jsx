@@ -56,6 +56,7 @@ export default function DownloadBook(props) {
       <div className='row p-0'>
         {isEmail ? (
           <div className='col-md-12  text-center mt-3'>
+            <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
             <a
               href={`https://freesad.com${props.file}`}
               className='btn border-0 btn-success rounded-pill w-75 ms-1'
@@ -63,38 +64,39 @@ export default function DownloadBook(props) {
             >
               Download
             </a>
+            <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
           </div>
         ) : (
           <>
             <span className='text-danger' ref={message}></span>
-            <div className='col-md-12 col-lg-6 col-xl-6'>
-              <input
-                type='email'
-                placeholder='Enter you email'
-                className='form-control rounded-pill'
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
 
-            <div className='col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
+            <div className='d-flex w-100'>
               <GoogleAd
                 slot='4567237334'
                 googleAdId='ca-pub-6043226569102012'
               />
-              <button
-                className='btn border-0 btn-success rounded-pill w-75 ms-1'
-                onClick={seveEmail}
-              >
-                {!spinner ? (
-                  'Download'
-                ) : (
-                  <div
-                    className='spinner-border'
-                    style={{ height: '25px', width: '25px' }}
-                    role='status'
-                  ></div>
-                )}
-              </button>
+              <input
+                type='email'
+                placeholder='Enter you email'
+                className='form-control rounded-pill w-75'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <div className='text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0 w-25'>
+                <button
+                  className='btn border-0 btn-success rounded-pill ms-1 w-100'
+                  onClick={seveEmail}
+                >
+                  {!spinner ? (
+                    'Download'
+                  ) : (
+                    <div
+                      className='spinner-border'
+                      style={{ height: '25px', width: '25px' }}
+                      role='status'
+                    ></div>
+                  )}
+                </button>
+              </div>
               <GoogleAd
                 slot='4567237334'
                 googleAdId='ca-pub-6043226569102012'
