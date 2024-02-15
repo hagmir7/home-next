@@ -57,8 +57,6 @@ export default async function Post(props) {
           className='col-12 col-md-5 col-lg-4 col-xl-4 position-relative mb-3'
           style={{ height: 'auto!important' }}
         >
-
-
           <CopyRight />
         </div>
       </div>

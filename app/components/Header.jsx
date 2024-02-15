@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import SearchBook from './SearchBook'
 const AuthTools = dynamic(() => import('@/app/components/AuthTools'))
 
 export default function Header() {
@@ -30,7 +31,7 @@ export default function Header() {
                   title='Home'
                   loading='eager'
                   className='nav-icon'
-                  src='https://2023.freewsad.com/assets/new/home.svg'
+                  src='/assets/imgs/svg/home.svg'
                   alt='Home'
                   width='30px'
                   height='30px'
@@ -42,7 +43,19 @@ export default function Header() {
                   title='Blog'
                   loading='eager'
                   className='nav-icon'
-                  src='https://2023.freewsad.com/assets/new/post.png'
+                  src='/assets/imgs/svg/post.svg'
+                  alt='Blog'
+                  width='30px'
+                  height='30px'
+                />
+              </Link>
+
+              <Link href='/books/categories' className='nav-item mx-4'>
+                <img
+                  title='Categories'
+                  loading='eager'
+                  className='nav-icon'
+                  src='/assets/imgs/svg/menu.svg'
                   alt='Blog'
                   width='30px'
                   height='30px'
@@ -60,6 +73,7 @@ export default function Header() {
                   height='30px'
                 />
               </span>
+
             </nav>
           </div>
           <div className='d-none d-lg-block my-1' style={{ zIndex: 100 }}>

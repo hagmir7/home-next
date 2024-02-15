@@ -24,8 +24,8 @@ export default function ProgresBar() {
         ></div>
       </div>
       <div className='container'>
-        <div className='row'>
-          <div className='col-12'>
+        <div className='row d-flex justify-content-center'>
+          <div className='col-10'>
             <div className='border-0 loading'>
               <div className='image rounded'></div>
               <div className='image rounded mt-3'></div>
