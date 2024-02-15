@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import SearchBook from './SearchBook'
 const AuthTools = dynamic(() => import('@/app/components/AuthTools'))
 
 export default function Header() {

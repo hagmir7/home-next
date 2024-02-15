@@ -1,5 +1,6 @@
 'use client'
 import React, { useRef, useState } from 'react'
+import GoogleAd from './GoogleAd'
 
 export default function DownloadBook(props) {
   const [email, setEmail] = useState()
@@ -76,6 +77,10 @@ export default function DownloadBook(props) {
             </div>
 
             <div className='col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
+              <GoogleAd
+                slot='4567237334'
+                googleAdId='ca-pub-6043226569102012'
+              />
               <button
                 className='btn border-0 btn-success rounded-pill w-75 ms-1'
                 onClick={seveEmail}
@@ -90,6 +95,10 @@ export default function DownloadBook(props) {
                   ></div>
                 )}
               </button>
+              <GoogleAd
+                slot='4567237334'
+                googleAdId='ca-pub-6043226569102012'
+              />
             </div>
           </>
         )}
