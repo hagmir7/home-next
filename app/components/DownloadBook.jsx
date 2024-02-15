@@ -1,6 +1,9 @@
 'use client'
-import React, { useRef, useState } from 'react'
-import GoogleAd from './GoogleAd'
+import React, { useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+
+const GoogleAd = dynamic(() => import('./GoogleAd'))
 
 export default function DownloadBook(props) {
   const [email, setEmail] = useState()
