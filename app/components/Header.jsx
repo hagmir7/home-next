@@ -13,7 +13,7 @@ export default function Header() {
           <div className='logo-content'>
             <Link href='/' className='nav-item logo h4 m-0 my-1 h1'>
               <img
-                width='auto'
+                width='45px'
                 height='45px'
                 title='Freewsad'
                 loading='eager'
