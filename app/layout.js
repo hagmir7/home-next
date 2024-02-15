@@ -19,7 +19,7 @@ export const metadata = {
   siteName: 'FreeWsad',
   keywords: ['books', 'download books', 'pdf books', 'free books', 'download free pdf books', 'free pdf books', 'programming books', 'online books'],
   alternates: {
-    canonical: "https://freewsd.com"
+    canonical: "https://www.freewsad.com"
   },
   openGraph: {
     title: "FreeWsad - The Best Website For Education",
