@@ -4,7 +4,7 @@ import React from 'react'
 export const metadata = {
   title: 'Book Categories - FreeWsad',
   alternates: {
-    canonical: 'https://freewsad.com/books/categories',
+    canonical: 'https://www.freewsad.com/books/categories',
   }
 }
 

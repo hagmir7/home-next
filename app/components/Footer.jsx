@@ -9,7 +9,9 @@ export default function Footer() {
         <div className='row justify-content-center'>
           <div className='col-md-12 text-center'>
             <div className='footer-heading mt-3'>
-              <Link href='/' className='logo h5'>Freewsad.com</Link>
+              <Link href='/' className='logo h5'>
+                <img src="/assets/imgs/freewsad-item.webp" height="auto"  width="150px" alt="FreeWsad - Download free books" />
+              </Link>
             </div>
             <p className='menu d-flex justify-content-center mt-3 flex-wrap'>
               <Link href='/' className='nav-link mx-2'>Home</Link>
