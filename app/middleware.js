@@ -1,29 +1,16 @@
+// Middleware.js
+import { match } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
 
-let locales = ['en-US', 'nl-NL', 'nl']
+export default async function middleware(req, res) {
+    const headers = { 'accept-language': req.headers['accept-language'] };
+    const languages = new Negotiator({ headers }).languages();
+    const locales = ['en-US', 'fr-FR', 'es-ES']; // Your supported locales
+    const defaultLocale = 'en-US';
 
+    const userLanguage = match(languages, locales, defaultLocale);
 
-export function middleware(request) {
-    // Check if there is any supported locale in the pathname
-    const { pathname } = request.nextUrl
-    const pathnameHasLocale = locales.some(
-        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    )
-
-    if (pathnameHasLocale) return
-
-    // Redirect if there is no locale
-    const locale = getLocale(request)
-    request.nextUrl.pathname = `/${locale}${pathname}`
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return Response.redirect(request.nextUrl)
+    // Store userLanguage in req.cookies or req.session...
 }
 
-export const config = {
-    matcher: [
-        // Skip all internal paths (_next)
-        '/((?!_next).*)',
-        // Optional: only run on root (/) URL
-        // '/'
-    ],
-}
+

@@ -1,5 +1,6 @@
 import CopyRight from '@/app/components/CopyRight';
 import GoogleAd from '@/app/components/GoogleAd';
+import { notFound } from 'next/navigation';
 
 
 export async function generateMetadata({ params, searchParams }, parent) {
@@ -9,6 +10,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
   // fetch data
   const response = await fetch('https://freesad.com/en/api/post/' + slug)
   const post = await response.json()
+   if (!response.ok) {
+     return notFound()
+   }
 
   return {
     title: post.title,

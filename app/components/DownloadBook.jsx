@@ -73,16 +73,18 @@ export default function DownloadBook(props) {
           <>
             <span className='text-danger' ref={message}></span>
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
-            <div className='d-flex w-100'>
-              <input
-                type='email'
-                placeholder='Enter you email'
-                className='form-control rounded-pill w-75'
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <div className='text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0 w-25'>
+            <div className='row d-flex w-100 p-0 m-0'>
+              <div className='col-md-8'>
+                <input
+                  type='email'
+                  placeholder='Enter you email'
+                  className='form-control rounded-pill'
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className='col-md-4 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
                 <button
-                  className='btn border-0 btn-success rounded-pill ms-1 w-100'
+                  className='btn border-0 btn-success rounded-pill ms-1 w-75'
                   onClick={seveEmail}
                 >
                   {!spinner ? (

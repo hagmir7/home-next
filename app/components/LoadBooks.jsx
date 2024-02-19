@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import BookCard from './BookCard'
 
 export default function LoadBooks(props) {
@@ -8,38 +8,67 @@ export default function LoadBooks(props) {
   const [sniper, setSniper] = useState(false)
   const [hasNext, setHasNext] = useState(true)
 
-
   const loadMore = () => {
-     setSniper(true)
-     setPage((currnetPage) => {
-       getBooks(currnetPage)
-       return currnetPage + 1
-     })
-   }
+    setSniper(true)
 
-const getBooks = async (pageNumber = 2) => {
-  const response = await fetch(
-    `https://freesad.com/en/api/books/${props.category ? props.category : ''}?page=${pageNumber}`
-  )
-  const result = await response.json() // Extract JSON data from response
-  setSniper(false);
-  setData((prevData) => [
-    ...prevData,
-    ...result.data.map((item) => (
-      <BookCard
-        slug={item.slug}
-        title={item.name}
-        image={item.image}
-        key={item.id}
-      />
-    )),
-  ])
-  setHasNext(result.has_next) 
-}
+    setPage((currentPage) => currentPage + 1)
+    getBooks(page)
+  }
+
+  const getBooks = async (pageNumber = 2) => {
+    try {
+      const response = await fetch(`${props.url}?page=${pageNumber}`)
+      const result = await response.json()
+
+       const pagination_response = await fetch(`${props.url}?page=1`)
+       const pagination = await pagination_response.json()
+       if(pagination.has_next === false) {
+        setHasNext(false)
+      }else{
+         setData((prevData) => [
+           ...prevData,
+           ...result.data.map((item, index) => ({
+             slug: item.slug,
+             title: item.name,
+             image: item.image,
+             key: item.id,
+           })),
+         ])
+         setHasNext(result.has_next)
+      }
+      setSniper(false)
+
+
+     
+    } catch (error) {
+      console.error('Error fetching books:', error)
+      setSniper(false)
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      if(hasNext){
+        setSniper(true)
+
+        setPage((currentPage) => currentPage + 1)
+        getBooks(page)
+      }
+    }
+  }, [])
+
+
 
   return (
     <>
-      {data}
+      {data.map((book) => (
+        <BookCard
+          slug={book.slug}
+          title={book.title}
+          image={book.image}
+          key={book.key}
+        />
+      ))}
       <div className='d-flex justify-content-center'>
         <button
           onClick={loadMore}
@@ -64,3 +93,5 @@ const getBooks = async (pageNumber = 2) => {
     </>
   )
 }
+
+

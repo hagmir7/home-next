@@ -1,23 +1,28 @@
 import React from 'react'
-import Link from 'next/link'
 import BookCard from './BookCard'
 import LoadBooks from './LoadBooks'
 
 export default async function Books(props) {
-  const response = await fetch(`https://freesad.com/api/books/${props.category ? props.category : ''}`)
+  const response = await fetch(props.url)
   const books = await response.json()
   return (
-    <div className='row pb-5 p-0 m-0'>
-      {props.title}
-      {books.data.map((book) => (
-        <BookCard
-          key={book.slug}
-          name={book.name}
-          slug={book.slug}
-          image={book.image}
-        />
-      ))}
-      <LoadBooks category={props.category ? props.category : false} />
-    </div>
+    <>
+      {props.category ? (
+        <h1 className='h5 mt-2'>Download free {books.category.name} books</h1>
+      ) : (
+        props.title
+      )}
+      <div className='row pb-5 p-0 m-0'>
+        {books.data.map((book) => (
+          <BookCard
+            key={book.slug}
+            name={book.name}
+            slug={book.slug}
+            image={book.image}
+          />
+        ))}
+        <LoadBooks url={props.url}  />
+      </div>
+    </>
   )
 }

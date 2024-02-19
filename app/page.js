@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import styles from './page.module.css'
 import Books from './components/Books'
 import SearchBook from './components/SearchBook'
 
@@ -13,7 +11,10 @@ export default function Home() {
         </div>
       </div>
       <div className="row">
-        <Books title={(<h1 className='d-none'>FreeWsad - Download FREE PDF books</h1>)} />
+        <Books
+          url={`https://freesad.com/en/api/books/`}
+          title={(<h1 className='d-none'>FreeWsad - Download FREE PDF books</h1>)}
+        />
       </div>
     </main>
   )

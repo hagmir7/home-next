@@ -1,15 +1,20 @@
 import Logout from '@/app/components/Logout';
 import React from 'react';
+import { notFound } from 'next/navigation';
 
 
 
 export async function generateMetadata({ params, searchParams }, parent) {
 
   // fetch data
-  const response = await fetch(`https://freesad.com/en/api/user/${params.slug}`)
-  const data = await response.json()
-  console.log(data)
+  const response = await fetch(`https://freesad.com/en/api/user/${params.slug}`);
+   if (!response.ok) {
+     return notFound()
+   }
+  const data = await response.json();
   const user = data.user;
+
+  
 
   return {
     title: `${user.first_name} ${user.last_name} (@${user.username})`,

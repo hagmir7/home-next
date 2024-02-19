@@ -8,6 +8,7 @@ import Loading from './loading';
 
 
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -37,6 +38,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en" dir='ltr' className='bg-light'>
       <head>

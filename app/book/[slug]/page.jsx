@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic'
 import CopyRight from '@/app/components/CopyRight';
 import GoogleAd from '@/app/components/GoogleAd';
 const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'));
+import { notFound } from 'next/navigation'
+
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
@@ -13,6 +15,13 @@ export async function generateMetadata({ params, searchParams }, parent) {
   // fetch data
   const response = await fetch('https://freesad.com/en/api/book/' + slug)
   const book = await response.json()
+
+  if (!response.ok) {
+    return notFound()
+  }
+
+
+
 
   return {
     title: book.name,
@@ -42,6 +51,11 @@ export default async function BookPage(props) {
   const response = await fetch(
     'https://freesad.com/api/book/' + props.params.slug
   )
+  if (!response.ok) {
+    return {
+      notFound: true,
+    }
+  }
   const book = await response.json()
   const options = {
     year: 'numeric',
@@ -192,7 +206,9 @@ export default async function BookPage(props) {
           <CopyRight />
         </div>
       </div>
-      <Books title={<h2 className='h4'>More free PDF books</h2>} />
+      <Books
+        url={`https://freesad.com/en/api/books/`}
+      />
     </div>
   )
 }

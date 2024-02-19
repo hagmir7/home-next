@@ -33,8 +33,7 @@ export default function LoadPosts() {
 
   const loadPost = async (pageNumber) => {
     try {
-      const response = await fetch(
-        `https://freesad.com/en/api/?page=${pageNumber}`,
+      const response = await fetch(`https://freesad.com/en/api/?page=${pageNumber}`,
         {
           method: 'GET',
           headers: {
@@ -44,13 +43,14 @@ export default function LoadPosts() {
       )
       const responseData = await response.json()
 
+      setData((prevData) => [...prevData, ...responseData.data])
+
       if (responseData.has_next) {
-        setData((prevData) => [...prevData, ...responseData.data])
         setSpinner(false)
       } else {
-        setData((prevData) => [...prevData, ...responseData.data])
         setSpinner(true)
       }
+      
     } catch (error) {
       console.log('Error', error)
     }
