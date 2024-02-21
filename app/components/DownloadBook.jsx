@@ -71,8 +71,8 @@ export default function DownloadBook(props) {
           </div>
         ) : (
           <>
-            <span className='text-danger' ref={message}></span>
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+            <span className='text-danger' ref={message}></span>
             <div className='row d-flex w-100 p-0 m-0'>
               <div className='col-md-8'>
                 <input
