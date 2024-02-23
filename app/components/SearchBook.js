@@ -2,11 +2,16 @@
 
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/navigation'
+
 
 export default function SearchBook() {
     const [books, setBooks] = useState([]);
     const [value, setValue] = useState(false);
     const focus = useRef();
+    const { t, i18n } = useTranslation();
+    const currentLang = i18n.language
 
     const Search = async (query) => {
         const inputValue = query.target.value;
@@ -16,7 +21,7 @@ export default function SearchBook() {
         } else {
             setValue(true);
             try {
-                const response = await fetch(`https://freesad.com/en/api/book?q=${encodeURIComponent(inputValue)}`);
+                const response = await fetch(`https://freesad.com/${currentLang}/api/book?q=${encodeURIComponent(inputValue)}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -38,7 +43,7 @@ export default function SearchBook() {
                 </span>
                 <input
                     onChange={Search}
-                    placeholder="Search..."
+                    placeholder={t("Search") + "..."}
                     className='form-control border-0'
                     type='search'
                     id='search'

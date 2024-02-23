@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useTranslation } from 'react-i18next';
 
 
 const GoogleAd = dynamic(() => import('./GoogleAd'))
@@ -8,6 +9,7 @@ const GoogleAd = dynamic(() => import('./GoogleAd'))
 export default function DownloadBook(props) {
   const [email, setEmail] = useState()
   const [spinner, setSpinner] = useState(false)
+  const {t} = useTranslation();
 
   const isEmail = localStorage.getItem('email')
   
@@ -37,16 +39,16 @@ export default function DownloadBook(props) {
             }
             setSpinner(false)
           } else {
-            message.current.innerHTML = 'Your email is not valid!'
+            message.current.innerHTML = t('Your email is not valid!')
             setSpinner(false)
           }
         })
         .catch((error) => {
-          message.current.innerHTML = 'Your email is not valid!'
+          message.current.innerHTML = t('Your email is not valid!')
           setSpinner(false)
         })
     } else {
-      message.current.innerHTML = 'Please first enter your email to download!'
+      message.current.innerHTML = t('Please first enter your email to download!')
       setSpinner(false)
     }
 
@@ -77,7 +79,7 @@ export default function DownloadBook(props) {
               <div className='col-md-8'>
                 <input
                   type='email'
-                  placeholder='Enter you email'
+                  placeholder={t('Enter you email')}
                   className='form-control rounded-pill'
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -88,7 +90,7 @@ export default function DownloadBook(props) {
                   onClick={seveEmail}
                 >
                   {!spinner ? (
-                    'Download'
+                    t('Download')
                   ) : (
                     <div
                       className='spinner-border'

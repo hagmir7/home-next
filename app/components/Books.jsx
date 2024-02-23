@@ -1,14 +1,19 @@
 import React from 'react'
 import BookCard from './BookCard'
 import LoadBooks from './LoadBooks'
+import initTranslations from '../i18n';
 
 export default async function Books(props) {
   const response = await fetch(props.url)
-  const books = await response.json()
+  const books = await response.json();
+  const { t } = await initTranslations(props.locale, ['translation'])
+
   return (
     <>
       {props.category ? (
-        <h1 className='h5 mt-2'>Download free {books.category.name} books</h1>
+        <h1 className='h5 mt-2'>
+          {t('book_category', { category: books.category.name })}
+        </h1>
       ) : (
         props.title
       )}
@@ -21,7 +26,7 @@ export default async function Books(props) {
             image={book.image}
           />
         ))}
-        <LoadBooks url={props.url}  />
+        <LoadBooks locale={props.locale} url={props.url} />
       </div>
     </>
   )

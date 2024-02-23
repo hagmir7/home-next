@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react'
 import PostCard from './PostCard'
 
-export default function LoadPosts() {
+export default function LoadPosts(props) {
   const [data, setData] = useState([])
   const [spinner, setSpinner] = useState(false)
   const [page, setPage] = useState(2)
@@ -33,7 +33,7 @@ export default function LoadPosts() {
 
   const loadPost = async (pageNumber) => {
     try {
-      const response = await fetch(`https://freesad.com/en/api/?page=${pageNumber}`,
+      const response = await fetch(`https://freesad.com/${props.locale}/api/?page=${pageNumber}`,
         {
           method: 'GET',
           headers: {

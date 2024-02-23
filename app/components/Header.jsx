@@ -1,9 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
+
 const AuthTools = dynamic(() => import('@/app/components/AuthTools'))
 
 export default function Header() {
+
+
 
 
   return (

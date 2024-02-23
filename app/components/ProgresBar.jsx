@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react'
 import style from '@/app/style/progress.module.css'
+
+
 export default function ProgresBar() {
   const [progress, SetProgress] = useState(10)
   useEffect(() => {
