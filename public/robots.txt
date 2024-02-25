@@ -1,0 +1,4 @@
+User-agent: *
+disallow: /media/*
+
+Sitemap: https://www.freewsad.com/sitemap.xml
