@@ -1,10 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic';
+import initTranslations from '../i18n';
 
 const AuthTools = dynamic(() => import('@/app/components/AuthTools'))
 
-export default function Header() {
+export default async function Header(props) {
+
+  const { t } = await initTranslations(props.locale, ['translation']);
 
 
 
@@ -14,7 +17,11 @@ export default function Header() {
       <div className='navbar navbar-expand-lg p-0 position-relative'>
         <div className='d-flex justify-content-between w-100 px-3'>
           <div className='logo-content'>
-            <Link href='/' className='nav-item logo h4 m-0 my-1 h1'>
+            <Link
+              href='/'
+              title={t('Download the Best Free PDF books')}
+              className='nav-item logo h4 m-0 my-1 h1'
+            >
               <img
                 width='45px'
                 height='45px'
@@ -28,37 +35,41 @@ export default function Header() {
           </div>
           <div className='navbar-top d-none d-lg-block small bg-white mb-0'>
             <nav className='d-flex justify-content-between p-2 pb-0 nav'>
-              <Link href='/' className='nav-item mx-4'>
+              <Link href='/' title={t('Home')} className='nav-item mx-4'>
                 <img
-                  title='Home'
+                  title={t('Home')}
                   loading='eager'
                   className='nav-icon'
                   src='/assets/imgs/svg/home.svg'
-                  alt='Home'
+                  alt={t('Home')}
                   width='30px'
                   height='30px'
                 />
               </Link>
 
-              <Link href='/blog' className='nav-item mx-4'>
+              <Link href='/blog' title={t('Blogs')} className='nav-item mx-4'>
                 <img
-                  title='Blog'
+                  title={t('Blogs')}
                   loading='eager'
                   className='nav-icon'
                   src='/assets/imgs/svg/post.svg'
-                  alt='Blog'
+                  alt={t('Blogs')}
                   width='30px'
                   height='30px'
                 />
               </Link>
 
-              <Link href='/books/categories' className='nav-item mx-4'>
+              <Link
+                href='/books/categories'
+                title={t('Books Categories')}
+                className='nav-item mx-4'
+              >
                 <img
-                  title='Categories'
+                  title={t('Books Categories')}
                   loading='eager'
                   className='nav-icon'
                   src='/assets/imgs/svg/menu.svg'
-                  alt='Blog'
+                  alt={t('Books Categories')}
                   width='30px'
                   height='30px'
                 />
@@ -73,14 +84,15 @@ export default function Header() {
             <Link
               className='navbar-toggler border-0 mt-2 p-0'
               href='/pages/menu'
+              title={t("Menu")}
             >
               <img
                 width='32'
                 height='32'
                 src='/assets/imgs/menu.svg'
-                alt='Menu'
+                alt={t("Menu")}
                 loading='eager'
-                title='Menu'
+                title={t("Menu")}
               />
             </Link>
           </>

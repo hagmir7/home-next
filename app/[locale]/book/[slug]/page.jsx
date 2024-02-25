@@ -12,7 +12,6 @@ import { notFound } from 'next/navigation';
 export async function generateMetadata({ request,params, searchParams }, parent) {
   // read route params
   const slug = params.slug
-  console.log(request)
   // fetch data
   const response = await fetch('https://freesad.com/en/api/book/' + slug)
   const book = await response.json()

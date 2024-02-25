@@ -10,11 +10,12 @@ export default function AuthTools() {
   const {t} = useTranslation();
   return (
     <>
-      
-
       {authTokens ? (
         <>
-          <Link href={`/user/${User ? User.user.username : ''}`} className='nav-item mx-4'>
+          <Link
+            href={`/user/${User ? User.user.username : ''}`}
+            className='nav-item mx-4'
+          >
             <img
               title='Profile'
               loading='eager'
@@ -28,8 +29,20 @@ export default function AuthTools() {
         </>
       ) : (
         <>
-        <Link className='btn-primary btn rounded-pill mx-2' href='/accounts/login'>{t('Log in')}</Link>
-         <Link className='border btn rounded-pill mx-2' href='/accounts/register'>{t('Register')}</Link>
+          <Link
+            className='btn-primary btn rounded-pill mx-2'
+            title={t('Log in')}
+            href='/accounts/login'
+          >
+            {t('Log in')}
+          </Link>
+          <Link
+            className='border btn rounded-pill mx-2'
+            href='/accounts/register'
+            title={t('Create new account')}
+          >
+            {t('Register')}
+          </Link>
         </>
       )}
     </>

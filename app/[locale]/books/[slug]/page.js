@@ -5,9 +5,9 @@ import initTranslations from '@/app/i18n';
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
-    const slug = params.slug;
-    const { t } = await initTranslations(params.locale, ['translation']);
-    const canonical = `https://www.freewsad.com/${params.locale === 'en' ? '' : params.locale + '/'}books/${slug}`;
+    const {slug, locale} = params;
+    const { t } = await initTranslations(locale, ['translation']);
+    const canonical = `https://www.freewsad.com/${locale === 'en' ? '' : locale + '/'}books/${slug}`;
 
     // fetch data
     const response = await fetch(`https://freesad.com/en/api/books/category/${slug}`);
@@ -37,9 +37,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 
 export default async function BookPage(props) {
+    const { slug, locale } = props.params; 
   return (
       <div className='container'>
-          <Books url={`https://freesad.com/en/api/books/category/${props.params.slug}?page=1`} locale={props.params.locale} category={true}/>
+          <Books url={`https://freesad.com/${locale}/api/books/category/${slug}`} locale={locale} category={true}/>
       </div>
   )
 }

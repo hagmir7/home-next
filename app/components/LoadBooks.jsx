@@ -19,7 +19,9 @@ export default function LoadBooks(props) {
   }
 
   const getBooks = async (pageNumber = 2) => {
-    const response = await fetch(`${props.url}?page=${pageNumber}`)
+    const url = `${props.url}?page=${pageNumber}`
+    const response = await fetch(url);
+
     const result = await response.json()
     setData((prevData) => [
       ...prevData,
@@ -30,6 +32,7 @@ export default function LoadBooks(props) {
         key: item.id,
       })),
     ])
+
     setHasNext(result.has_next)
     setSniper(false)
   }
@@ -51,7 +54,7 @@ export default function LoadBooks(props) {
       {data.map((book) => (
         <BookCard
           slug={book.slug}
-          title={book.title}
+          name={book.name}
           image={book.image}
           key={book.key}
         />

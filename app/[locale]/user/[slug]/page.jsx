@@ -46,7 +46,6 @@ export default async function Profile(props) {
   const data = await response.json()
   const user = data.user
   const profile = data.profile;
-  // console.log(user);
 
 
 

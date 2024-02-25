@@ -1,44 +1,49 @@
 import Books from "@/app/components/Books"
 import SearchBook from "@/app/components/SearchBook"
+import initTranslations from "@/app/i18n"
 
 
-export const metadata = {
-  title: 'Download Best free PDF books',
+export async function generateMetadata({ params }) {
 
-  alternates: {
-    canonical: 'https://www.freewsad.com/books/trending',
-  },
-  openGraph: {
-    title: 'Download Best free PDF books',
-    images: '/thumbnail.png',
-    description:
-      'You can enjoy the Topics and Books you love and download the original content, and share it all with your friends in FreeWsad.',
-    url: '/books/trending',
-    type: 'website',
-    image: {
-      url: '/thumbnail.png',
-      alt: 'Download Best free PDF books',
-      width: 600,
-      height: 800,
+  const { locale } = params;
+  const { t } = await initTranslations(locale, ['translation']);
+  const canonical = `https://www.freewsad.com/${locale === "en" ? '' : locale + "/"}books/trending`
+ 
+  return {
+    title: t('Download the Best Free PDF books'),
+    alternates: {canonical},
+    openGraph: {
+      title: t('Download the Best Free PDF books'),
+      images: '/thumbnail.png',
+      description: t('meta_description'),
+      url: canonical,
+      type: 'website',
+      image: {
+        url: '/thumbnail.png',
+        alt: t('Download the Best Free PDF books'),
+        width: 600,
+        height: 800,
+      },
     },
-  },
+  }
 }
 
-export default function Trending() {
+export default async function Trending({params : {locale}}) {
+  const { t } = await initTranslations(locale, ['translation'])
   return (
     <main className='container'>
       <div className='row my-3 d-flex justify-content-center'>
         <div className='col-md-6 text-center'>
           <div className='h6'>
-            Discover Your Next Favorite Book With our Search Tool!
+            {t('Discover Your Next Favorite Book With our Search Tool!')}
           </div>
           <SearchBook />
         </div>
       </div>
       <div className='row'>
         <Books
-          url={`https://freesad.com/en/api/books?page=1`}
-          title={<h1 className='d-none'>Download Best free PDF books</h1>}
+          url={`https://freesad.com/${locale}/api/books`}
+          title={<h1 className='d-none'>{t("Download the Best Free PDF books")}</h1>}
         />
       </div>
     </main>

@@ -25,10 +25,9 @@ export default function LoginPage() {
       <div className='row m-0 d-flex justify-content-center w-100'>
         <div className='text-center mb-1'>
           <img src='/favicon.ico' alt='Freewsa' width='70px' height='auto' />
-          <p className='h5 my-3'>{t('Log in to manage your account')}</p>
+          <h1 className='h5 my-3'>{t('Log in to manage your account')}</h1>
         </div>
         <div className='col-md-5 shadow-sm card p-3'>
-          <h1 className='d-none h4'>{t('Login to freewsad')}</h1>
           <form onSubmit={login}>
             <div></div>
             <label htmlFor='username' className='text-muted h6'>

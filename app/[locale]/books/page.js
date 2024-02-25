@@ -6,7 +6,7 @@ export default async BooksPage => {
         <main className='container'>
             <div className="row">
                 <Books 
-                    url={`https://freesad.com/en/api/books/?page=1`}
+                    url={`https://freesad.com/en/api/books/`}
                     title={(<h1 className='d-none'>Download free PDF books</h1>)}
                 />
             </div>

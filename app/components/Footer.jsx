@@ -12,12 +12,17 @@ export default async function Footer(props) {
         <div className='row justify-content-center'>
           <div className='col-md-12 text-center'>
             <div className='footer-heading mt-3'>
-              <Link href='/' className='logo h5'>
+              <Link
+                href='/'
+                title={t('Download the Best Free PDF books')}
+                className='logo h5'
+              >
                 <img
                   src='/assets/imgs/freewsad-item.webp'
                   height='auto'
                   width='150px'
-                  alt='FreeWsad - Download free books'
+                  alt={t('meta_title')}
+                  title={t('Download the Best Free PDF books')}
                 />
               </Link>
             </div>
@@ -31,8 +36,20 @@ export default async function Footer(props) {
               <Link href='/pages/about' className='nav-link mx-2'>
                 {t('About Us')}
               </Link>
-              <Link href='/pages/contact' className='nav-link mx-2'>
+              <Link
+                href='/pages/contact'
+                title={t('Contact Us')}
+                className='nav-link mx-2'
+              >
                 {t('Contact Us')}
+              </Link>
+
+              <Link
+                href='/books/categories'
+                title={t('Categories')}
+                className='nav-link mx-2'
+              >
+                {t('Categories')}
               </Link>
             </p>
           </div>

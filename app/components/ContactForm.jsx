@@ -16,7 +16,6 @@ export default function ContactForm() {
           body: form,
         })
           .then((response) => {
-            console.log('success')
             setSpinner(false)
             e.target.reset()
             router.push('/')
