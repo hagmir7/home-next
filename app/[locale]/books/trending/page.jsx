@@ -37,7 +37,7 @@ export default function Trending() {
       </div>
       <div className='row'>
         <Books
-          url={`https://freesad.com/en/api/books`}
+          url={`https://freesad.com/en/api/books?page=1`}
           title={<h1 className='d-none'>Download Best free PDF books</h1>}
         />
       </div>

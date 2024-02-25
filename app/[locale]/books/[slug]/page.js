@@ -39,7 +39,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default async function BookPage(props) {
   return (
       <div className='container'>
-          <Books url={`https://freesad.com/en/api/books/category/${props.params.slug}`} locale={props.params.locale} category={true}/>
+          <Books url={`https://freesad.com/en/api/books/category/${props.params.slug}?page=1`} locale={props.params.locale} category={true}/>
       </div>
   )
 }

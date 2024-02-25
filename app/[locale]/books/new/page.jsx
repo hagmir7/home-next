@@ -37,7 +37,7 @@ export default async function Trending({params: {locale}}) {
       </div>
       <div className='row'>
         <Books
-          url={`https://freesad.com/${locale}/api/books/new`}
+          url={`https://freesad.com/${locale}/api/books/new?page=1`}
           title={<h1 className='d-none'>{t('Download New free PDF books')}</h1>}
         />
       </div>
