@@ -62,18 +62,32 @@ export default function DownloadBook(props) {
         {isEmail ? (
           <div className='col-md-12  text-center mt-3'>
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
-            <a
-              href={`https://freesad.com${props.file}`}
-              className='btn border-0 btn-success rounded-pill w-75 ms-1'
-              target='_blanck'
-            >
-              {t('Download')}
-            </a>
+            {props.file === null ? (
+              <button
+                href={`https://freesad.com${props.file}`}
+                className='btn border-0 btn-danger rounded-pill w-75 ms-1'
+                target='_blanck'
+                disabled={true}
+              >
+                {t("Sorry you can't download this book")}
+              </button>
+            ) : (
+              <a
+                href={`https://freesad.com${props.file}`}
+                className='btn border-0 btn-success rounded-pill w-75 ms-1'
+                target='_blanck'
+                disabled={true}
+              >
+                {t('Download')}
+              </a>
+            )}
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
           </div>
         ) : (
           <>
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+            <p className='h6 text-center text-danger'>{t("Sorry you can't download this book")}</p>
+
             <span className='text-danger' ref={message}></span>
             <div className='row d-flex w-100 p-0 m-0'>
               <div className='col-md-8'>
@@ -86,7 +100,10 @@ export default function DownloadBook(props) {
               </div>
               <div className='col-md-4 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
                 <button
-                  className='btn border-0 btn-success rounded-pill ms-1 w-75'
+                  disabled={props.file === null ? true : false}
+                  className={`btn border-0 ${
+                    props.file === null ? 'btn-danger' : 'btn-success'
+                  } rounded-pill ms-1 w-75`}
                   onClick={seveEmail}
                 >
                   {!spinner ? (

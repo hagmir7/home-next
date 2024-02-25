@@ -1,17 +1,33 @@
 "use client"
-import React from 'react'
+import React, { useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { useTranslation } from 'react-i18next';
 
 
 export default function ContactForm() {
-      const [spinner, setSpinner] = React.useState(false)
-      const router = useRouter()
+      const [spinner, setSpinner] = React.useState(false);
+      const { t } = useTranslation();
+      const router = useRouter();
+      const errorMessage = useRef()
 
       const sendMessage = async (e) => {
         setSpinner(true)
         e.preventDefault()
         const form = new FormData(e.target)
-        await fetch('https://freesad.com' + '/api/contact', {
+        // Check if any input field is empty
+        let isAnyFieldEmpty = false;
+        form.forEach((value) => {
+            if (!value.trim()) {
+                isAnyFieldEmpty = true;
+            }
+        });
+
+        if (isAnyFieldEmpty) {
+            errorMessage.current.textContent = t('Please fill in all fields.')
+            setSpinner(false);
+            return;
+        }
+        await fetch('https://freesad.com/api/contact', {
           method: 'POST',
           body: form,
         })
@@ -27,35 +43,39 @@ export default function ContactForm() {
           })
       }
   return (
-    <form onSubmit={sendMessage}>
-      <label htmlFor='name'>Full name</label>
+    <form
+      onSubmit={sendMessage}
+      onChange={() => errorMessage.current.textContent = ""}
+    >
+      <p className='h6 text-danger' ref={errorMessage}></p>
+      <label htmlFor='name'>{t('Full name')}</label>
       <input
         type='text'
         maxLength={60}
-        placeholder='Full name'
+        placeholder={t('Full name')}
         className='form-control rounded-pill'
         name='name'
       />
-      <label htmlFor='email'>Email</label>
+      <label htmlFor='email'>{t('Email')}</label>
       <input
         type='text'
         maxLength={60}
-        placeholder='Email'
+        placeholder={t('Email')}
         className='form-control rounded-pill'
         name='email'
       />
-      <label htmlFor='body'>Message</label>
+      <label htmlFor='body'>{t('Message')}</label>
       <textarea
         name='body'
         id='body'
-        placeholder='Message'
+        placeholder={t('Message')}
         cols='30'
         rows='5'
         className='form-control contact-body'
       ></textarea>
       <button type='submit' className='btn btn-primary w-100 mt-3 rounded-pill'>
         {!spinner ? (
-          'Send'
+          t('Send')
         ) : (
           <div
             className='spinner-border'
