@@ -6,9 +6,7 @@ import CopyRight from '@/app/components/CopyRight';
 import GoogleAd from '@/app/components/GoogleAd';
 import initTranslations from '@/app/i18n';
 const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'));
-import { notFound } from 'next/navigation'
-import TranslationsProvider from '@/app/components/TranslationsProvider';
-import { loadNamespaces } from 'i18next';
+import { notFound } from 'next/navigation';
 
 
 export async function generateMetadata({ request,params, searchParams }, parent) {

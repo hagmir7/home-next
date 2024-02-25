@@ -67,7 +67,7 @@ export default function DownloadBook(props) {
               className='btn border-0 btn-success rounded-pill w-75 ms-1'
               target='_blanck'
             >
-              Download
+              {t('Download')}
             </a>
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
           </div>

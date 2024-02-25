@@ -1,11 +1,12 @@
 import CopyRight from '@/app/components/CopyRight';
 import GoogleAd from '@/app/components/GoogleAd';
+import initTranslations from '@/app/i18n';
 import { notFound } from 'next/navigation';
 
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
-  const slug = params.slug
+  const slug = params.slug;
 
   // fetch data
   const response = await fetch('https://freesad.com/en/api/post/' + slug)
@@ -41,6 +42,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default async function Post(props) {
   const response = await fetch(`https://freesad.com/en/api/post/${props.params.slug}`)
   const responsData = await response.json()
+
+  // const { t } = await initTranslations(props.locale, ['translation'])
+
+
   return (
     <div className='container-lg mt-3' style={{ height: 'auto!important' }}>
       <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
@@ -76,7 +81,7 @@ export default async function Post(props) {
           style={{ height: 'auto!important' }}
         >
           <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
-          <CopyRight />
+          <CopyRight locale={props.params.locale} />
         </div>
       </div>
       {/* <Post /> */}

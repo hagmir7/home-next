@@ -13,7 +13,7 @@ export default async function CopyRight(props) {
         <span className='h4 p-1'>{t('Copyrights')}</span>
         <div>
           <p>
-            {t('copy-right')}
+            {t('copy-right')}{' '}
             <Link href='/pages/contact'>{t('Contact Us')}</Link>,{' '}
             {t('or by email at')}:{' '}
             <a href='mailto:support@freewsad.com'> support@freewsad.com.</a>
