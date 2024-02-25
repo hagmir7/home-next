@@ -8,7 +8,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
   // fetch data
   const response = await fetch(`https://freesad.com/en/api/user/${params.slug}`);
-   if (!response.ok) {
+   if (response.status === 404) {
      return notFound()
    }
   const data = await response.json();
@@ -39,8 +39,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default async function Profile(props) {
 
-  const respons = await fetch(`https://freesad.com/en/api/user/${props.params.slug}`);
-  const data = await respons.json()
+  const response = await fetch(`https://freesad.com/en/api/user/${props.params.slug}`);
+   if (response.status === 404) {
+     return notFound()
+   }
+  const data = await response.json()
   const user = data.user
   const profile = data.profile;
   // console.log(user);

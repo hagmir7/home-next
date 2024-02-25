@@ -2,11 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 import initTranslations from '@/app/i18n';
 
-export const metadata = {
-  title: 'Menu - FreeWsad',
-  alternates: {
-    canonical: '/pages/menu',
-  },
+
+export async function generateMetadata({params, searchParams },parent) {
+  const {locale} = params;
+  const {t} = await initTranslations(locale, ['translation']);
+
+  return {
+    title: t('Menu - FreeWsad'),
+    alternates: {
+      canonical: '/pages/menu',
+    },
+  }
 }
 
 export default async function MenuPage({params : {locale}}) {

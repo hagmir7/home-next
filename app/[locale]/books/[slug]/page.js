@@ -1,10 +1,13 @@
 import Books from '@/app/components/Books';
 import React from 'react';
 import { notFound } from 'next/navigation';
+import initTranslations from '@/app/i18n';
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
-    const slug = params.slug
+    const slug = params.slug;
+    const { t } = await initTranslations(params.locale, ['translation']);
+    const canonical = `https://www.freewsad.com/${params.locale === 'en' ? '' : params.locale + '/'}books/${slug}`;
 
     // fetch data
     const response = await fetch(`https://freesad.com/en/api/books/category/${slug}`);
@@ -13,20 +16,18 @@ export async function generateMetadata({ params, searchParams }, parent) {
     }
     const responseData = await response.json();
     return {
-        title: `Download free ${responseData.category.name} books`,
-        alternates: {
-            canonical: 'https://www.freewsad.com/books/' + slug,
-        },
+        title: t('book_category', { category: responseData.category.name }),
+        alternates: {canonical},
         openGraph: {
-            title: `Download free ${responseData.category.name} books`,
-            url: '/books/' + slug,
+            title: t('book_category', { category: responseData.category.name }),
+            url: canonical,
             type: 'website',
             images: '/thumbnail.png',
-            description: "You can enjoy the Topics and Books you love and download the original content, and share it all with your friends in FreeWsad.",
+            description: t("meta_description"),
             type: 'website',
             image: {
                 url: '/thumbnail.png',
-                alt: "FreeWsad - The Best Website For Education",
+                alt: t('book_category', { category: responseData.category.name }),
                 width: 600,
                 height: 800,
             },

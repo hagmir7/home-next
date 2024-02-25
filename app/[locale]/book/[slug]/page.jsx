@@ -93,7 +93,7 @@ export default async function BookPage({ props, params }) {
                   </div>
                 </div>
                 <div className='col-12 col-lg-9 col-sm-12 p-0 mt-2 mt-lg-0 ps-lg-3 '>
-                  <h2 className='h4 p-0 m-0 d-sm-none'>{t('About Book')}</h2>
+                  <h2 className='h4 p-0 m-0 d-sm-none'>{t('About book')}</h2>
                   <ul className='list-group pe-0 pe-md-3'>
                     {!book.author ? (
                       ''

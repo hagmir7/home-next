@@ -2,10 +2,15 @@ import initTranslations from '@/app/i18n';
 import Link from 'next/link'
 import React from 'react';
 
-export const metadata = {
-  title: 'Book Categories - FreeWsad',
-  alternates: {
-    canonical: 'https://www.freewsad.com/books/categories',
+export async function generateMetadata({ params, searchParams }, parent) {
+  const { locale } = params
+  const { t } = await initTranslations(locale, ['translation'])
+
+  return {
+    title: `${t('Books Categories')} - FreeWsad`,
+    alternates: {
+      canonical: 'https://www.freewsad.com/books/categories',
+    },
   }
 }
 

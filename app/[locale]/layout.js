@@ -13,36 +13,41 @@ import TranslationsProvider from '../components/TranslationsProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 
+export async function generateMetadata({ params, searchParams }, parent) {
+  const { locale } = params
+  const { t } = await initTranslations(locale, ['translation']);
+  const canonical = `https://www.freewsad.com${locale === 'en' ? '' : '/' + locale}`
 
-export const metadata = {
-  title: "FreeWsad - The Best Website For Education",
-  description: "You can enjoy the Topics and Books you love and download the original content, and share it all with your friends in FreeWsad.",
-  image: '/thumbnail.png',
-  siteName: 'FreeWsad',
-  keywords: ['books', 'download books', 'pdf books', 'free books', 'download free pdf books', 'free pdf books', 'programming books', 'online books'],
-  alternates: {
-    canonical: "https://www.freewsad.com"
-  },
-  openGraph: {
-    title: "FreeWsad - The Best Website For Education",
-    images: '/thumbnail.png',
-    description: "You can enjoy the Topics and Books you love and download the original content, and share it all with your friends in FreeWsad.",
-    url: '/',
-    type: 'website',
-    image: {
-      url: '/thumbnail.png',
-      alt: "FreeWsad - The Best Website For Education",
-      width: 600,
-      height: 800,
+  return {
+    title: t('meta_title'),
+    description: t("meta_description"),
+    image: '/thumbnail.png',
+    siteName: 'FreeWsad',
+    keywords: ['books', 'download books', 'pdf books', 'free books', 'download free pdf books', 'free pdf books', 'programming books', 'online books'],
+    alternates: {canonical},
+    openGraph: {
+      title: t('meta_title'),
+      images: '/thumbnail.png',
+      description: t("meta_description"),
+      url: canonical,
+      type: 'website',
+      image: {
+        url: '/thumbnail.png',
+        alt: t('meta_title'),
+        width: 600,
+        height: 800,
+      },
     },
-  },
+  }
 }
 
+// export const metadata = 
+
 export default async function RootLayout({ children, params :{locale} }) {
-  const { t, resources, i18n } = await initTranslations(locale, ['translation'])
+  const {resources } = await initTranslations(locale, ['translation'])
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={['translation']}>
-      <html lang={i18n.language} dir={i18n.language === 'ar' ? 'rtl' : 'ltr'} className='bg-light'>
+      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className='bg-light'>
         <head>
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -54,7 +59,7 @@ export default async function RootLayout({ children, params :{locale} }) {
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6043226569102012" crossOrigin="anonymous" ></script>
         </head>
         <AuthProvider>
-          <body className={i18n.language === 'ar' ? "sans-serif" : inter.className}>
+          <body className={locale === 'ar' ? "sans-serif" : inter.className}>
             <Header />
             <Suspense fallback={<Loading />}>
               {children}
