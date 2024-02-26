@@ -24,7 +24,15 @@ export async function generateMetadata({ params, searchParams }, parent) {
     image: '/thumbnail.png',
     siteName: 'FreeWsad',
     keywords: ['books', 'download books', 'pdf books', 'free books', 'download free pdf books', 'free pdf books', 'programming books', 'online books'],
-    alternates: {canonical},
+    alternates: {
+      canonical,
+      languages: {
+        'en': '/',
+        'ar': '/ar',
+        'fr': '/fr',
+        'es': '/es'
+      },
+    },
     openGraph: {
       title: t('meta_title'),
       images: '/thumbnail.png',
