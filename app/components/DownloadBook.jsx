@@ -86,8 +86,11 @@ export default function DownloadBook(props) {
         ) : (
           <>
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
-            <p className='h6 text-center text-danger'>{t("Sorry you can't download this book")}</p>
-
+            {
+              props.file === null ?
+                <p className='h6 text-center text-danger'>{t("Sorry you can't download this book")}</p>
+                : ''
+            }
             <span className='text-danger' ref={message}></span>
             <div className='row d-flex w-100 p-0 m-0'>
               <div className='col-md-8'>
