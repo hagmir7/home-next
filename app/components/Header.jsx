@@ -28,7 +28,7 @@ export default async function Header(props) {
                 title='Freewsad'
                 loading='eager'
                 className='logo'
-                src='https://freesad.com/media/avatar/rounded-pill.png'
+                src='/android-chrome-384x384.png'
                 alt='Freewsad'
               />
             </Link>
@@ -84,15 +84,15 @@ export default async function Header(props) {
             <Link
               className='navbar-toggler border-0 mt-2 p-0'
               href='/pages/menu'
-              title={t("Menu")}
+              title={t('Menu')}
             >
               <img
                 width='32'
                 height='32'
                 src='/assets/imgs/menu.svg'
-                alt={t("Menu")}
+                alt={t('Menu')}
                 loading='eager'
-                title={t("Menu")}
+                title={t('Menu')}
               />
             </Link>
           </>
