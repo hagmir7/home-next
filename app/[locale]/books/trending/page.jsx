@@ -14,12 +14,12 @@ export async function generateMetadata({ params }) {
     alternates: {canonical},
     openGraph: {
       title: t('Download the Best Free PDF books'),
-      images: '/thumbnail.png',
+      images: 'https://www.freewsad.com/thumbnail.png',
       description: t('meta_description'),
       url: canonical,
       type: 'website',
       image: {
-        url: '/thumbnail.png',
+        url: 'https://www.freewsad.com/thumbnail.png',
         alt: t('Download the Best Free PDF books'),
         width: 600,
         height: 800,

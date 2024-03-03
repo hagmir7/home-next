@@ -22,11 +22,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
             title: t('book_category', { category: responseData.category.name }),
             url: canonical,
             type: 'website',
-            images: '/thumbnail.png',
+            images: 'https://www.freewsad.com/thumbnail.png',
             description: t("meta_description"),
             type: 'website',
             image: {
-                url: '/thumbnail.png',
+                url: 'https://www.freewsad.com/thumbnail.png',
                 alt: t('book_category', { category: responseData.category.name }),
                 width: 600,
                 height: 800,

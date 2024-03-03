@@ -12,7 +12,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return {
         title: t("Download free PDF books"),
         description: t("meta_description"),
-        image: '/thumbnail.png',
+        image: 'https://www.freewsad.com/thumbnail.png',
         siteName: 'FreeWsad',
         keywords: ['books', 'download books', 'pdf books', 'free books', 'download free pdf books', 'free pdf books', 'programming books', 'online books'],
         alternates: {
@@ -26,12 +26,12 @@ export async function generateMetadata({ params, searchParams }, parent) {
         },
         openGraph: {
             title: t("Download free PDF books"),
-            images: '/thumbnail.png',
+            images: 'https://www.freewsad.com/thumbnail.png',
             description: t("meta_description"),
             url: canonical,
             type: 'website',
             image: {
-                url: '/thumbnail.png',
+                url: 'https://www.freewsad.com/thumbnail.png',
                 alt: t("Download free PDF books"),
                 width: 600,
                 height: 800,

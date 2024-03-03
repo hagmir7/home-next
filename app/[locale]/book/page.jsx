@@ -10,13 +10,13 @@ export const metadata = {
   },
   openGraph: {
     title: 'Download New & Free PDF books',
-    images: '/thumbnail.png',
+    images: 'https://www.freewsad.com/thumbnail.png',
     description:
       'You can enjoy the Topics and Books you love and download the original content, and share it all with your friends in FreeWsad.',
     url: '/book',
     type: 'website',
     image: {
-      url: '/thumbnail.png',
+      url: 'https://www.freewsad.com/thumbnail.png',
       alt: 'Download New & Free PDF books',
       width: 600,
       height: 800,
