@@ -8,10 +8,6 @@ const AuthTools = dynamic(() => import('@/app/components/AuthTools'))
 export default async function Header(props) {
 
   const { t } = await initTranslations(props.locale, ['translation']);
-
-
-
-
   return (
     <header className='navbar-light position-sticky top-0 header-static border-bottom bg-white shadow-sm'>
       <div className='navbar navbar-expand-lg p-0 position-relative'>

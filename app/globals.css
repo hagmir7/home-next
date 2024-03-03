@@ -17,6 +17,24 @@
   border-radius: inherit;
 }
 
+/* .change-lang{
+  width: 100%;
+} */
+.change-lang button {
+  /* Reset all styles to their initial values */
+  all: initial;
+  font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875';
+  margin: 0 10px 0 10px;
+  text-align: center;
+
+
+  /* Optionally, reset specific properties to their initial values */
+  /* For example: */
+  /* background: unset; */
+  /* color: unset; */
+  /* border: unset; */
+  /* padding: unset; */
+}
 
 body {
     background-color: #f0f8ff;

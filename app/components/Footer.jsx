@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
 import initTranslations from '../i18n';
+import LanguageSwitcher from './LanguageSwitcher';
 
 
 export default async function Footer(props) {
@@ -52,6 +53,7 @@ export default async function Footer(props) {
                 {t('Categories')}
               </Link>
             </p>
+            <LanguageSwitcher />
           </div>
         </div>
         <div className='row mt-4'>

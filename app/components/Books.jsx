@@ -2,6 +2,7 @@ import React from 'react'
 import BookCard from './BookCard'
 import LoadBooks from './LoadBooks'
 import initTranslations from '../i18n';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default async function Books(props) {
   const response = await fetch(props.url)
@@ -17,6 +18,8 @@ export default async function Books(props) {
       ) : (
         props.title
       )}
+      
+      <LanguageSwitcher />
       <div className='row pb-5 p-0 m-0'>
         {books.data.map((book) => (
           <BookCard
