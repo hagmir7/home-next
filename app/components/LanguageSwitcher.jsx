@@ -55,7 +55,7 @@ const LanguageSwitcher = () => {
         {languages.map((lang) => (
           <button
             dir={lang.code === 'ar' ? 'rtl' : 'ltr'}
-            lang={lang.code === 'ar' ? 'rtl' : 'ltr'}
+            lang={lang.code}
             key={lang.code}
             onClick={() => handleLanguageChange(lang.code)}
           >
