@@ -25,7 +25,7 @@ export async function generateMetadata({ request,params, searchParams }, parent)
   return {
     title: book.name,
     description: book.description.slice(0, 170),
-    image: 'https://freesad.com' + book.image,
+    images: ['https://freesad.com' + book.image],
     keywords: ['books', book.tags],
     alternates: {
       canonical,
