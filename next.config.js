@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["freesad.com"],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'freesad.com',
+                port: '',
+                pathname: '/media/**',
+            },
+        ],
     },
 }
 
