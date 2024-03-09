@@ -13,7 +13,7 @@ export async function generateMetadata({ request,params, searchParams }, parent)
   // read route params
   const slug = params.slug
   // fetch data
-  const response = await fetch('https://freesad.com/en/api/book/' + slug)
+  const response = await fetch(`https://freesad.com/${params.locale}/api/book/` + slug)
   const book = await response.json()
 
   if (!response.ok) {
@@ -35,7 +35,7 @@ export async function generateMetadata({ request,params, searchParams }, parent)
       images: ['https://freesad.com' + book.image],
       description: book.description.slice(0, 170),
       url: canonical,
-      type: 'website',
+      type: 'article',
       image: {
         url: 'https://freesad.com' + book.image,
         alt: book.name,
@@ -48,7 +48,7 @@ export async function generateMetadata({ request,params, searchParams }, parent)
 
 export default async function BookPage({ props, params }) {
   const { t } = await initTranslations(params.locale, ['translation'])
-  const response = await fetch(`https://freesad.com/api/book/` + params.slug)
+  const response = await fetch(`https://freesad.com/${params.locale}/api/book/` + params.slug)
   if (!response.ok) {
     return {
       notFound: true,
