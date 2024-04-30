@@ -193,7 +193,7 @@ export default async function BookPage({ props, params }) {
               <div
                 className='mt-2 book-description'
                 dir='auto'
-                dangerouslySetInnerHTML={{ __html: book.description }}
+                dangerouslySetInnerHTML={{ __html: book.body }}
               />
             </article>
           </div>
