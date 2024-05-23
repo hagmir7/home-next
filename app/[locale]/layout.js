@@ -64,6 +64,7 @@ export default async function RootLayout({ children, params :{locale} }) {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
+          <meta name="google-site-verification" content="S80_9wpz81cproUDSD8eSH6043BoZwUoaNYmATG1Pj4" />
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6043226569102012" crossOrigin="anonymous" ></script>
         </head>
         <AuthProvider>
