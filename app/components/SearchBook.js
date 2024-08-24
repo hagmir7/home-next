@@ -21,7 +21,7 @@ export default function SearchBook() {
         } else {
             setValue(true);
             try {
-                const response = await fetch(`https://freesad.com/${currentLang}/api/book?q=${encodeURIComponent(inputValue)}`);
+                const response = await fetch(`https://al-kora.com/${currentLang}/api/book?q=${encodeURIComponent(inputValue)}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

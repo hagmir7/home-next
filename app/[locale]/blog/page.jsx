@@ -5,7 +5,7 @@ import initTranslations from '@/app/i18n'
 
 
 export default async ({ params: { locale } }) => {
-  const response = await fetch(`https://freesad.com/${locale}/api/`)
+  const response = await fetch(`https://al-kora.com/${locale}/api/`)
   const responsData = await response.json();
 
   const {t} = await initTranslations(locale, ['translation']);

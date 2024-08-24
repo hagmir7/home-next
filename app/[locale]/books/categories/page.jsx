@@ -16,7 +16,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 
 export default async function BookCategories({params : {locale}}) {
-  const response = await fetch(`https://freesad.com/${locale}/api/book/category`)
+  const response = await fetch(`https://al-kora.com/${locale}/api/book/category`)
   const categories = await response.json();
 
   const {t} = await initTranslations(locale, ['translation']);

@@ -20,7 +20,7 @@ export default function AuthTools() {
               title='Profile'
               loading='eager'
               className='nav-icon'
-              src={`https://freesad.com/${User ? User.profile.avatar : ''}`}
+              src={`https://al-kora.com/${User ? User.profile.avatar : ''}`}
               alt='Profile'
               width='35px'
               height='35px'
