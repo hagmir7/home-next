@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'al-kora.com',
+                hostname: 'freesad.com',
                 port: '',
                 pathname: '/media/**',
             },

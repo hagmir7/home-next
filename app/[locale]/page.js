@@ -16,7 +16,7 @@ export default async function Home({ params: { locale } }) {
       </div>
       <div className="row">
         <Books
-          url={`https://al-kora.com/${locale}/api/books/`}
+          url={`https://freesad.com/${locale}/api/books/`}
           title={(<h1 className='d-none'>{t("FreeWsad - Download FREE PDF books")}</h1>)}
         />
       </div>
