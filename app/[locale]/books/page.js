@@ -52,7 +52,7 @@ const BooksPage = async ({ params: {locale}}) => {
             </div>
             <div className="row">
                 <Books 
-                    url={`https://freesad.com/${locale}/api/books/new`}
+                    url={`https://al-kora.com/${locale}/api/books/new`}
                     title={(<h1 className='d-none'>{t("Download free PDF books")}</h1>)}
                 />
             </div>

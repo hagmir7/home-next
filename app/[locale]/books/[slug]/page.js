@@ -10,7 +10,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     const canonical = `https://www.freewsad.com/${locale === 'en' ? '' : locale + '/'}books/${slug}`;
 
     // fetch data
-    const response = await fetch(`https://freesad.com/en/api/books/category/${slug}`);
+    const response = await fetch(`https://al-kora.com/en/api/books/category/${slug}`);
     if (!response.ok) {
         return notFound()
     }
@@ -40,7 +40,7 @@ export default async function BookPage(props) {
     const { slug, locale } = props.params; 
   return (
       <div className='container'>
-          <Books url={`https://freesad.com/${locale}/api/books/category/${slug}`} locale={locale} category={true}/>
+          <Books url={`https://al-kora.com/${locale}/api/books/category/${slug}`} locale={locale} category={true}/>
       </div>
   )
 }

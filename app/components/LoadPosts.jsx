@@ -33,7 +33,7 @@ export default function LoadPosts(props) {
 
   const loadPost = async (pageNumber) => {
     try {
-      const response = await fetch(`https://freesad.com/${props.locale}/api/?page=${pageNumber}`,
+      const response = await fetch(`https://al-kora.com/${props.locale}/api/?page=${pageNumber}`,
         {
           method: 'GET',
           headers: {
