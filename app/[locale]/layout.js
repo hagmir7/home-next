@@ -55,7 +55,7 @@ export default async function RootLayout({ children, params :{locale} }) {
   const {resources } = await initTranslations(locale, ['translation'])
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={['translation']}>
-      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className='bg-light'>
+      <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} translate="no" className='bg-light'>
         <head>
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

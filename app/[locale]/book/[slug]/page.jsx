@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Link from 'next/link'
 import Books from '@/app/components/Books'
 import dynamic from 'next/dynamic'
@@ -7,6 +7,8 @@ import GoogleAd from '@/app/components/GoogleAd';
 import initTranslations from '@/app/i18n';
 const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'));
 import { notFound } from 'next/navigation';
+import PageNotFound from '../../404/page';
+
 
 
 export async function generateMetadata({ request,params, searchParams }, parent) {
@@ -14,11 +16,13 @@ export async function generateMetadata({ request,params, searchParams }, parent)
   const slug = params.slug
   // fetch data
   const response = await fetch(`https://al-kora.com/${params.locale}/api/book/` + slug)
+
+    if (response.status != 200) {
+       return <PageNotFound />
+    }
   const book = await response.json()
 
-  if (!response.ok) {
-    return notFound()
-  }
+
 
   const canonical = `https://www.freewsad.com/${params.locale === 'en' ? '' : params.locale + '/'}book/` + book.slug;
 
@@ -49,11 +53,9 @@ export async function generateMetadata({ request,params, searchParams }, parent)
 export default async function BookPage({ props, params }) {
   const { t } = await initTranslations(params.locale, ['translation'])
   const response = await fetch(`https://al-kora.com/${params.locale}/api/book/` + params.slug)
-  if (!response.ok) {
-    return {
-      notFound: true,
+    if (response.status != 200) {
+      return <PageNotFound />
     }
-  }
   const book = await response.json()
   const options = {
     year: 'numeric',

@@ -16,7 +16,7 @@ export function middleware(request) {
 
 
 export const config = {
-    matcher: '/((?!api|static|.*\\..*|_next).*)'
+    matcher: ['/((?!api|_next|.*\\..*).*)'],
 }
 
 
