@@ -9,7 +9,7 @@ export default function PostCard(props) {
             className='card-img-top m-0 p-0 border rounded'
             width='100%'
             height='100%'
-            src={`https://al-kora.com${props.image}`}
+            src={`https://freesad.com${props.image}`}
             alt={props.title}
             title={props.title}
           />

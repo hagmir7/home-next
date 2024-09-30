@@ -24,7 +24,7 @@ export default function DownloadBook(props) {
   const seveEmail = async () => {
     setSpinner(true)
     if (email !== '') {
-      await fetch('https://al-kora.com/en/api/save-email', {
+      await fetch('https://freesad.com/en/api/save-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export default function DownloadBook(props) {
           if (validateEmail(email)) {
             if (typeof window !== 'undefined') {
               window.localStorage.setItem('email', true)
-              window.open(`https://al-kora.com${props.file}`, '_blank')
+              window.open(`https://freesad.com${props.file}`, '_blank')
             }
             setSpinner(false)
           } else {
@@ -64,7 +64,7 @@ export default function DownloadBook(props) {
             <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
             {props.file === null ? (
               <button
-                href={`https://al-kora.com${props.file}`}
+                href={`https://freesad.com${props.file}`}
                 className='btn border-0 btn-danger rounded-pill w-75 ms-1'
                 target='_blanck'
                 disabled={true}
@@ -73,7 +73,7 @@ export default function DownloadBook(props) {
               </button>
             ) : (
               <a
-                href={`https://al-kora.com${props.file}`}
+                href={`https://freesad.com${props.file}`}
                 className='btn border-0 btn-success rounded-pill w-75 ms-1'
                 target='_blanck'
                 disabled={true}

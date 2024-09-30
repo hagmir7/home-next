@@ -27,7 +27,7 @@ export default function ContactForm() {
             setSpinner(false);
             return;
         }
-        await fetch('https://al-kora.com/api/contact', {
+        await fetch('https://freesad.com/api/contact', {
           method: 'POST',
           body: form,
         })
