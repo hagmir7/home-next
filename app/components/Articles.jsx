@@ -7,7 +7,7 @@ export default function Articles() {
 
   const fetcher = async () => {
     
-    const response = await fetch('https://freesad.com/en/api/', {
+    const response = await fetch('https://books.amtar.shop/en/api/', {
         next: {
             revalidate: 300
         }

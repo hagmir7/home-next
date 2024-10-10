@@ -8,7 +8,7 @@ export default function BookCard(props) {
         <Link className='h-100' title={props.name} href={`/book/${props.slug}`}>
           <img
             height='100%'
-            src={`https://freesad.com${props.image}`}
+            src={`https://books.amtar.shop${props.image}`}
             width='100%'
             alt={props.name}
             title={props.name}

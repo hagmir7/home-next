@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
   const getUser = async () => {
     if (DecodeToken !== null) {
       const response = await fetch(
-        `https://freesad.com/en/api/user/${DecodeToken.username}`
+        `https://books.amtar.shop/en/api/user/${DecodeToken.username}`
       )
 
       if (response.status === 200) {
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
     setSniper(true)
 
     try {
-      const response = await fetch('https://freesad.com/en/api/token/', {
+      const response = await fetch('https://books.amtar.shop/en/api/token/', {
         method: 'POST',
         body: data,
         headers: {
@@ -94,7 +94,7 @@ export const AuthProvider = ({ children }) => {
     event.preventDefault()
     setSniper(true)
     const data = new FormData(event.target)
-    await fetch('https://freesad.com/en/api/register', {
+    await fetch('https://books.amtar.shop/en/api/register', {
       method: 'POST',
       body: data,
     })

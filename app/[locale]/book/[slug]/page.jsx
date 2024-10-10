@@ -15,7 +15,7 @@ export async function generateMetadata({ request,params, searchParams }, parent)
   // read route params
   const slug = params.slug
   // fetch data
-  const response = await fetch(`https://freesad.com/${params.locale}/api/book/` + slug)
+  const response = await fetch(`https://books.amtar.shop/${params.locale}/api/book/` + slug)
 
     if (response.status != 200) {
        return <PageNotFound />
@@ -29,19 +29,19 @@ export async function generateMetadata({ request,params, searchParams }, parent)
   return {
     title: book.name,
     description: book.description.slice(0, 170),
-    images: ['https://freesad.com' + book.image],
+    images: ['https://books.amtar.shop' + book.image],
     keywords: ['books', book.tags],
     alternates: {
       canonical,
     },
     openGraph: {
       title: book.name,
-      images: ['https://freesad.com' + book.image],
+      images: ['https://books.amtar.shop' + book.image],
       description: book.description.slice(0, 170),
       url: canonical,
       type: 'article',
       image: {
-        url: 'https://freesad.com' + book.image,
+        url: 'https://books.amtar.shop' + book.image,
         alt: book.name,
         width: 600,
         height: 800,
@@ -52,7 +52,7 @@ export async function generateMetadata({ request,params, searchParams }, parent)
 
 export default async function BookPage({ props, params }) {
   const { t } = await initTranslations(params.locale, ['translation'])
-  const response = await fetch(`https://freesad.com/${params.locale}/api/book/` + params.slug)
+  const response = await fetch(`https://books.amtar.shop/${params.locale}/api/book/` + params.slug)
     if (response.status != 200) {
       return <PageNotFound />
     }
@@ -84,7 +84,7 @@ export default async function BookPage({ props, params }) {
                 <div className='col-12 col-md-12 col-lg-3 col-xl-3 p-0 '>
                   <div className='card book-img overflow-hidden m-auto'>
                     <img
-                      src={`https://freesad.com${book.image}`}
+                      src={`https://books.amtar.shop${book.image}`}
                       alt={book.name}
                       width='100%'
                       height='auto'
@@ -207,7 +207,7 @@ export default async function BookPage({ props, params }) {
             <CopyRight locale={params.locale} />
           </div>
         </div>
-        <Books url={`https://freesad.com/${params.locale}/api/books/new`} />
+        <Books url={`https://books.amtar.shop/${params.locale}/api/books/new`} />
       </div>
     // </TranslationsProvider>
   )
