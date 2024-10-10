@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'freesad.com',
+                hostname: 'books.amtar.shop',
                 port: '',
                 pathname: '/media/**',
             },

@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 export async function generateMetadata({ params, searchParams }, parent) {
 
   // fetch data
-  const response = await fetch(`https://freesad.com/en/api/user/${params.slug}`);
+  const response = await fetch(`https://books.amtar.shop/en/api/user/${params.slug}`);
    if (response.status === 404) {
      return notFound()
    }
@@ -18,17 +18,17 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
   return {
     title: `${user.first_name} ${user.last_name} (@${user.username})`,
-    image: 'https://freesad.com' + data.profile.avatar,
+    image: 'https://books.amtar.shop' + data.profile.avatar,
     alternates: {
       canonical: '/user/' + user.username,
     },
     openGraph: {
       title: `${user.first_name} ${user.last_name} (@${user.username})`,
-      images: ['https://freesad.com' + data.profile.avatar],
+      images: ['https://books.amtar.shop' + data.profile.avatar],
       url: '/user/' + user.username,
       type: 'website',
       image: {
-        url: 'https://freesad.com' + data.profile.avatar,
+        url: 'https://books.amtar.shop' + data.profile.avatar,
         alt: `${user.first_name} ${user.last_name} (@${user.username})`,
         width: 600,
         height: 800,
@@ -39,7 +39,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default async function Profile(props) {
 
-  const response = await fetch(`https://freesad.com/en/api/user/${props.params.slug}`);
+  const response = await fetch(`https://books.amtar.shop/en/api/user/${props.params.slug}`);
    if (response.status === 404) {
      return notFound()
    }
@@ -58,7 +58,7 @@ export default async function Profile(props) {
               <div className='card-body'>
                 <div className='d-flex flex-column align-items-center text-center'>
                   <img
-                    src={`https://freesad.com${profile.avatar}`}
+                    src={`https://books.amtar.shop${profile.avatar}`}
                     alt={`${user.first_name} ${user.last_name}`}
                     className='rounded-circle'
                     width='150'
