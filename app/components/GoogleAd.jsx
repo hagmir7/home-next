@@ -3,7 +3,14 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-const GoogleAd = ({ classNames, slot, timeout, googleAdId, style, format }) => {
+const GoogleAd = ({
+  classNames = 'w-100', // Default parameter instead of defaultProps
+  slot,
+  timeout = 200, // Default parameter instead of defaultProps
+  googleAdId,
+  style,
+  format,
+}) => {
   let googleInit = null
 
   useEffect(() => {
@@ -17,8 +24,8 @@ const GoogleAd = ({ classNames, slot, timeout, googleAdId, style, format }) => {
       if (googleInit) clearTimeout(googleInit)
     }
   }, [timeout])
-  return process.env.REACT_APP_ADS == "1" ? (<div></div>) :
-   (
+
+  return (
     <div className={classNames} id={googleAdId} aria-atomic={slot}>
       <ins
         className='adsbygoogle'
@@ -41,9 +48,10 @@ GoogleAd.propTypes = {
   format: PropTypes.string,
 }
 
-GoogleAd.defaultProps = {
-  classNames: 'w-100',
-  timeout: 200,
-}
+// Removed defaultProps
+// GoogleAd.defaultProps = {
+//   classNames: 'w-100',
+//   timeout: 200,
+// }
 
 export default GoogleAd
