@@ -17,19 +17,19 @@ const GoogleAd = ({ classNames, slot, timeout, googleAdId, style, format }) => {
       if (googleInit) clearTimeout(googleInit)
     }
   }, [timeout])
-  return (<div></div>)
-  // return (
-  //   <div className={classNames} id={googleAdId} aria-atomic={slot}>
-  //     <ins
-  //       className='adsbygoogle'
-  //       style={style || { display: 'block', textAlign: 'center' }}
-  //       data-ad-client={googleAdId}
-  //       data-ad-slot={slot}
-  //       data-ad-format={format || 'auto'}
-  //       data-full-width-responsive='true'
-  //     ></ins>
-  //   </div>
-  // )
+  return process.env.REACT_APP_ADS == "1" ? (<div></div>) :
+   (
+    <div className={classNames} id={googleAdId} aria-atomic={slot}>
+      <ins
+        className='adsbygoogle'
+        style={style || { display: 'block', textAlign: 'center' }}
+        data-ad-client={googleAdId}
+        data-ad-slot={slot}
+        data-ad-format={format || 'auto'}
+        data-full-width-responsive='true'
+      ></ins>
+    </div>
+  )
 }
 
 GoogleAd.propTypes = {
