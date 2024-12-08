@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^4.41.3",
     "i18next": "^23.10.0",
     "i18next-resources-to-backend": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
