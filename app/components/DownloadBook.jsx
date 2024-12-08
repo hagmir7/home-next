@@ -40,7 +40,7 @@ export default function DownloadBook(props) {
     try {
       setSpinner(true)
       const response = await fetch(
-        'https://books.amtar.shop/en/api/save-email',
+        'https://api.facepy.com/en/api/save-email',
         {
           method: 'POST',
           headers: {
@@ -56,7 +56,7 @@ export default function DownloadBook(props) {
 
       window?.localStorage?.setItem('email', 'true')
       setHasStoredEmail(true)
-      window?.open(`https://books.amtar.shop${props.file}`, '_blank')
+      window?.open(`https://api.facepy.com${props.file}`, '_blank')
     } catch (error) {
       console.error('Error saving email:', error)
       message.current.innerHTML = t('An error occurred. Please try again.')
@@ -65,7 +65,7 @@ export default function DownloadBook(props) {
     }
   }
 
-  const fileUrl = `https://books.amtar.shop${props.file}`
+  const fileUrl = `https://api.facepy.com${props.file}`
   const isFileAvailable = props.file !== null
 
   return (

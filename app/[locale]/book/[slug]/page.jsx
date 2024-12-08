@@ -13,7 +13,7 @@ const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'))
 export async function generateMetadata({ params }) {
   try {
     const response = await fetch(
-      `https://books.amtar.shop/${params.locale}/api/book/${params.slug}`
+      `https://api.facepy.com/${params.locale}/api/book/${params.slug}`
     )
 
     if (!response.ok) {
@@ -28,19 +28,19 @@ export async function generateMetadata({ params }) {
     return {
       title: book.name,
       description: book.description?.slice(0, 170) || '',
-      images: ['https://books.amtar.shop' + book.image],
+      images: ['https://api.facepy.com' + book.image],
       keywords: ['books', ...(book.tags || [])],
       alternates: {
         canonical,
       },
       openGraph: {
         title: book.name,
-        images: ['https://books.amtar.shop' + book.image],
+        images: ['https://api.facepy.com' + book.image],
         description: book.description?.slice(0, 170) || '',
         url: canonical,
         type: 'article',
         image: {
-          url: 'https://books.amtar.shop' + book.image,
+          url: 'https://api.facepy.com' + book.image,
           alt: book.name,
           width: 600,
           height: 800,
@@ -57,7 +57,7 @@ export default async function BookPage({ params }) {
   try {
     const { t } = await initTranslations(params.locale, ['translation'])
     const response = await fetch(
-      `https://books.amtar.shop/${params.locale}/api/book/${params.slug}`
+      `https://api.facepy.com/${params.locale}/api/book/${params.slug}`
     )
 
     if (!response.ok) {
@@ -86,7 +86,7 @@ export default async function BookPage({ params }) {
                 <div className='col-12 col-md-12 col-lg-3 col-xl-3 p-0'>
                   <div className='card book-img overflow-hidden m-auto'>
                     <img
-                      src={`https://books.amtar.shop${book.image}`}
+                      src={`https://api.facepy.com${book.image}`}
                       alt={book.name}
                       width='100%'
                       height='auto'
@@ -202,7 +202,7 @@ export default async function BookPage({ params }) {
           </div>
         </div>
         <Books
-          url={`https://books.amtar.shop/${params.locale}/api/books/new`}
+          url={`https://api.facepy.com/${params.locale}/api/books/new`}
         />
       </div>
     )

@@ -27,7 +27,7 @@ export default function ContactForm() {
             setSpinner(false);
             return;
         }
-        await fetch('https://books.amtar.shop/api/contact', {
+        await fetch('https://api.facepy.com/api/contact', {
           method: 'POST',
           body: form,
         })

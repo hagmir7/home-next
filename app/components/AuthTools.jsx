@@ -20,7 +20,7 @@ export default function AuthTools() {
               title='Profile'
               loading='eager'
               className='nav-icon'
-              src={`https://books.amtar.shop/${User ? User.profile.avatar : ''}`}
+              src={`https://api.facepy.com/${User ? User.profile.avatar : ''}`}
               alt='Profile'
               width='35px'
               height='35px'

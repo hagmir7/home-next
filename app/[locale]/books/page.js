@@ -52,7 +52,7 @@ const BooksPage = async ({ params: {locale}}) => {
             </div>
             <div className="row">
                 <Books 
-                    url={`https://books.amtar.shop/${locale}/api/books/new`}
+                    url={`https://api.facepy.com/${locale}/api/books/new`}
                     title={(<h1 className='d-none'>{t("Download free PDF books")}</h1>)}
                 />
             </div>

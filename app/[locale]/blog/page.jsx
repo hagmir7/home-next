@@ -5,7 +5,7 @@ import initTranslations from '@/app/i18n'
 
 
 export default async ({ params: { locale } }) => {
-  const response = await fetch(`https://books.amtar.shop/${locale}/api/`)
+  const response = await fetch(`https://api.facepy.com/${locale}/api/`)
   const responsData = await response.json();
 
   const {t} = await initTranslations(locale, ['translation']);

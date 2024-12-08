@@ -9,7 +9,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const slug = params.slug;
 
   // fetch data
-  const response = await fetch('https://books.amtar.shop/en/api/post/' + slug)
+  const response = await fetch('https://api.facepy.com/en/api/post/' + slug)
   const post = await response.json()
    if (!response.ok) {
      return notFound()
@@ -18,19 +18,19 @@ export async function generateMetadata({ params, searchParams }, parent) {
   return {
     title: post.title,
     description: post.description.slice(0, 170),
-    image: 'https://books.amtar.shop' + post.image,
+    image: 'https://api.facepy.com' + post.image,
     keywords: ['posts', post.tags],
     alternates: {
       canonical: 'https://www.freewsad.com/p/' + post.slug,
     },
     openGraph: {
       title: post.title,
-      images: ['https://books.amtar.shop' + post.image],
+      images: ['https://api.facepy.com' + post.image],
       description: post.description.slice(0, 170),
       url: '/p/' + post.slug,
       type: 'article',
       image: {
-        url: 'https://books.amtar.shop' + post.image,
+        url: 'https://api.facepy.com' + post.image,
         alt: post.title,
         width: 600,
         height: 800,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export default async function Post(props) {
-  const response = await fetch(`https://books.amtar.shop/en/api/post/${props.params.slug}`)
+  const response = await fetch(`https://api.facepy.com/en/api/post/${props.params.slug}`)
   const responsData = await response.json()
 
   // const { t } = await initTranslations(props.locale, ['translation'])
@@ -63,7 +63,7 @@ export default async function Post(props) {
               className='rounded'
               loading='eager'
               title={responsData.title}
-              src={`https://books.amtar.shop/${responsData.image}`}
+              src={`https://api.facepy.com/${responsData.image}`}
               width='100%'
               height='auto'
               alt={responsData.title}
