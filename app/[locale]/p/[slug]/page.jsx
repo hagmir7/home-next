@@ -1,6 +1,6 @@
 import CopyRight from '@/app/components/CopyRight';
-import GoogleAd from '@/app/components/GoogleAd';
-import initTranslations from '@/app/i18n';
+// import GoogleAd from '@/app/components/GoogleAd';
+// import initTranslations from '@/app/i18n';
 import { notFound } from 'next/navigation';
 
 
@@ -48,7 +48,7 @@ export default async function Post(props) {
 
   return (
     <div className='container-lg mt-3' style={{ height: 'auto!important' }}>
-      <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+      {/* <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' /> */}
       <div className='row' style={{ height: 'auto!important' }}>
         <div
           className='col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0'
@@ -73,14 +73,14 @@ export default async function Post(props) {
               At {new Date(responsData.created).toLocaleDateString()}{' '}
             </p>
             <div dangerouslySetInnerHTML={{ __html: responsData.body }} />
-            <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+            {/* <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' /> */}
           </article>
         </div>
         <div
           className='col-12 col-md-5 col-lg-4 col-xl-4 position-relative mb-3'
           style={{ height: 'auto!important' }}
         >
-          <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+          {/* <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' /> */}
           <CopyRight locale={props.params.locale} />
         </div>
       </div>

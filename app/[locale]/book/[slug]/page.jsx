@@ -3,10 +3,10 @@ import Link from 'next/link'
 import Books from '@/app/components/Books'
 import dynamic from 'next/dynamic'
 import CopyRight from '@/app/components/CopyRight'
-import GoogleAd from '@/app/components/GoogleAd'
+// import GoogleAd from '@/app/components/GoogleAd'
 import initTranslations from '@/app/i18n'
 import { notFound } from 'next/navigation'
-import PageNotFound from '../../404/page'
+// import PageNotFound from '../../404/page'
 
 const DownloadBook = dynamic(() => import('@/app/components/DownloadBook'))
 
@@ -74,7 +74,7 @@ export default async function BookPage({ params }) {
 
     return (
       <div className='container-lg mt-3'>
-        <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+        {/* <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' /> */}
         <div className='row'>
           <div className='col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0 p-1'>
             <article className='blog-post'>
@@ -197,7 +197,7 @@ export default async function BookPage({ params }) {
           </div>
 
           <div className='col-12 col-md-5 col-lg-4 col-xl-4 position-relative mb-3'>
-            <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+            {/* <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' /> */}
             <CopyRight locale={params.locale} />
           </div>
         </div>

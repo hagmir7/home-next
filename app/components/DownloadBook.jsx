@@ -1,9 +1,9 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { useTranslation } from 'react-i18next'
 
-const GoogleAd = dynamic(() => import('./GoogleAd'))
+// const GoogleAd = dynamic(() => import('./GoogleAd'))
 
 export default function DownloadBook(props) {
   const [email, setEmail] = useState('')
@@ -70,7 +70,7 @@ export default function DownloadBook(props) {
 
   return (
     <div className='row p-0'>
-      <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+      {/* <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' /> */}
 
       {!isFileAvailable && (
         <p className='h6 text-center text-danger'>
@@ -135,7 +135,7 @@ export default function DownloadBook(props) {
         </div>
       )}
 
-      <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' />
+      {/* <GoogleAd slot='4567237334' googleAdId='ca-pub-6043226569102012' /> */}
     </div>
   )
 }
