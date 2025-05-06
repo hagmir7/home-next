@@ -47,7 +47,6 @@ export async function generateMetadata({ params }) {
   }
 }
 
-const adScript = `(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9130516,document.createElement('script'))`
 
 export default async function RootLayout({ children, params: { locale } }) {
   const { resources } = await initTranslations(locale, ['translation'])
