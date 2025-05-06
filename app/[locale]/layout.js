@@ -64,7 +64,8 @@ export default async function RootLayout({ children, params: { locale } }) {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
           <meta name="google-site-verification" content="S80_9wpz81cproUDSD8eSH6043BoZwUoaNYmATG1Pj4" />
-          <script dangerouslySetInnerHTML={{ __html: adScript }}></script>
+          {/* <script dangerouslySetInnerHTML={{ __html: adScript }}></script> */}
+          <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="146161" async data-cfasync="false"></script>
         </head>
         <AuthProvider>
           <body className={locale === 'ar' ? "sans-serif" : inter.className}>
